@@ -8,13 +8,15 @@ public class Alimento {
 	private LocalDate validade;
 	private int quantidade;
 	private Categoria categoria;
+	private int num = 0;
 	
 	// Construtor
-	public Alimento(String nome, LocalDate validade, int quantidade, Categoria categoria) {
+	public Alimento(String nome, int quantidade) {
 		this.nome = nome;
-		this.validade = validade;
+		//this.validade = validade;
 		this.quantidade = quantidade;
-		this.categoria = categoria;
+		//this.categoria = categoria;
+		this.idAlimento = num + 1;
 	}
 	
 	// Verifica se esta na validade
@@ -23,6 +25,10 @@ public class Alimento {
 	    return !LocalDate.now().isAfter(limiteValidade);
 	}
 	
+	@Override
+	public String toString() {
+	    return "Alimento: " + nome + " | Quantidade: " + quantidade;
+	}
 	
 	
 	//Getters and Setters

@@ -4,15 +4,17 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Estoque {
-	private ArrayList<Alimento> alimentosEstoque;
+	private ArrayList<Alimento> alimentosEstoque = new ArrayList<>();
 	
-	//Construtor
-	public Estoque() {
-        alimentosEstoque = new ArrayList<>();
-    }
+	
+	//Adiciona novo alimento ao estoque
+	public void adicionaAoEstoque(Alimento alimento) {
+		alimentosEstoque.add(alimento);
+	}
+	
 	
 	// Adiciona quantidade para um alimento existente
-	public void adicionaEstoque(int idAlimento, int quant) {
+	public void adicionaQuantEstoque(int idAlimento, int quant) {
 		int novaQuant;
 		for(Alimento alimento : alimentosEstoque) {
 			if(alimento.getIdAlimento() == idAlimento) {
@@ -23,7 +25,7 @@ public class Estoque {
 	}
 	
 	// Remove quantidade para um alimento existente
-	public void removeEstoque(int idAlimento, int quant) {
+	public void removeQuantEstoque(int idAlimento, int quant) {
 		int novaQuant;
 		for(Alimento alimento : alimentosEstoque) {
 			if(alimento.getIdAlimento() == idAlimento) {
@@ -33,6 +35,16 @@ public class Estoque {
 		}
 	}
 	
+	@Override
+	public String toString() {
+	    StringBuilder sb = new StringBuilder("Estoque:\n");
+
+	    for (Alimento alimento : alimentosEstoque) {
+	        sb.append(alimento).append("\n"); // Isso chama o toString() de Alimento
+	    }
+
+	    return sb.toString();
+	}
 
 	
 	//Getters and Setters
