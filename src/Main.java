@@ -1,15 +1,34 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.List;
+
+import usuario.Doador;
+import usuario.PersistenciaDoador;
+import usuario.PersistenciaReceptor;
+import usuario.Receptor;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Doador doador = new Doador("Douglas", "douglas@gmail.com", "douglas123", "54998765432");
+        // doador.exibirInformacoes();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Receptor receptor = new Receptor("Rodrigo", "rodrigo@gmail.com", "rodrigo123", "54998765431");
+        // receptor.exibirInformacoes();
+
+        PersistenciaDoador persistenciaDoador = new PersistenciaDoador();
+        PersistenciaReceptor persistenciaReceptor = new PersistenciaReceptor();
+
+        // persistenciaDoador.salvaDoador(doador);
+        // persistenciaReceptor.salvaReceptor(receptor);
+
+        List<Doador> doadores = persistenciaDoador.obterDoadores();
+
+        for (Doador doador : doadores) {
+            doador.exibirInformacoes();
+        }
+
+        List<Receptor> receptores = persistenciaReceptor.obterReceptores();
+
+        for (Receptor receptor : receptores) {
+            receptor.exibirInformacoes();
         }
     }
 }
