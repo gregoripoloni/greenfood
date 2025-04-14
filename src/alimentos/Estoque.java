@@ -40,7 +40,7 @@ public class Estoque {
 	    StringBuilder sb = new StringBuilder("Estoque:\n");
 
 	    for (Alimento alimento : alimentosEstoque) {
-	        sb.append(alimento).append("\n"); // Isso chama o toString() de Alimento
+	        sb.append(alimento).append("\n"); 
 	    }
 
 	    return sb.toString();
