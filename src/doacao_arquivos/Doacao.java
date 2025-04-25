@@ -1,3 +1,4 @@
+package doacao_arquivos;
 import java.io.Serializable;
 import java.time.LocalDate;
 
