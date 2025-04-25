@@ -24,7 +24,7 @@ public class DoacaoDAO {
 
         try (Writer writer = new FileWriter(ARQUIVO)) {
             gson.toJson(doacoes, writer);
-            System.out.println("✅ Doação registrada com sucesso!");
+            System.out.println("Doação registrada com sucesso!");
         } catch (IOException e) {
             e.printStackTrace();
         }
