@@ -1,7 +1,7 @@
 package usuario;
 
 public class Receptor extends Usuario {
-    public Receptor(String nome, String email, String senha, String telefone) {
-        super(nome, email, senha, telefone, "receptor");
+    public Receptor(int id, String nome, String email, String senha, String telefone) {
+        super(id, nome, email, senha, telefone, "receptor");
     }
 }

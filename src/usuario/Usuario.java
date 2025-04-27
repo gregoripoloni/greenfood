@@ -1,19 +1,27 @@
 package usuario;
 
+import criptografia.SHA256;
+
 public abstract class Usuario {
+    private int id;
     private String nome;
     private String email;
     private String senha;
     private String telefone;
     private String tipo;
 
-    protected Usuario(String nome, String email, String senha, String telefone, String tipo) {
+    protected Usuario(int id, String nome, String email, String senha, String telefone, String tipo) {
+        this.setId(id);
         this.setNome(nome);
         this.setEmail(email);
         this.setSenha(senha);
         this.setTelefone(telefone);
         this.setTipo(tipo);
     }
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public String getNome() {
         return nome;
@@ -36,7 +44,7 @@ public abstract class Usuario {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        this.senha = SHA256.aplicar(senha);
     }
 
     public String getTelefone() {
@@ -57,6 +65,7 @@ public abstract class Usuario {
 
     public void exibirInformacoes() {
         System.out.println("Usuário:");
+        System.out.println("Id: " + this.getId());
         System.out.println("Nome: " + this.getNome());
         System.out.println("Email: " + this.getEmail());
         System.out.println("Senha: " + this.getSenha());

@@ -11,34 +11,27 @@ import java.util.List;
 
 public class PersistenciaReceptor {
     private static final String ARQUIVO = "receptores.json";
-    private final File arquivo;
 
-    public PersistenciaReceptor() {
-        this.arquivo = new File(ARQUIVO);
-    }
-
-    public void salvaReceptor(Receptor receptor) {
+    public static void salvar(Receptor receptor) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Receptor> receptores = this.obterReceptores();
+        List<Receptor> receptores = PersistenciaReceptor.obter();
 
-        // 2. Adiciona o novo usuário
         receptores.add(receptor);
 
-        // 3. Escreve a lista atualizada no arquivo
         try (Writer writer = new FileWriter(ARQUIVO)) {
             gson.toJson(receptores, writer);
-            System.out.println("Usuário adicionado com sucesso!");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public List<Receptor> obterReceptores() {
+    public static List<Receptor> obter() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Receptor> receptores = new ArrayList<>();
 
-        // 1. Verifica se o arquivo já tem usuários salvos
-        if (this.arquivo.exists() && this.arquivo.length() > 0) {
+        File arquivo = new File(ARQUIVO);
+
+        if (arquivo.exists() && arquivo.length() > 0) {
             try (Reader reader = new FileReader(ARQUIVO)) {
                 Type tipoLista = new TypeToken<List<Receptor>>() {}.getType();
                 receptores = gson.fromJson(reader, tipoLista);
