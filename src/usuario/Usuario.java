@@ -64,7 +64,7 @@ public abstract class Usuario {
     }
 
     public void exibirInformacoes() {
-        System.out.println("Usuário:");
+        System.out.println("Usuário");
         System.out.println("Id: " + this.getId());
         System.out.println("Nome: " + this.getNome());
         System.out.println("Email: " + this.getEmail());

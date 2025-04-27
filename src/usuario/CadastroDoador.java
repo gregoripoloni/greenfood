@@ -7,6 +7,8 @@ public class CadastroDoador {
     public static void iniciar() {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Cadastro de doador\n");
+
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
 

@@ -7,6 +7,8 @@ public class CadastroReceptor {
     public static void iniciar() {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Cadastro de receptor\n");
+
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
 
