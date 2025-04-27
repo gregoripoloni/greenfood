@@ -1,12 +1,10 @@
-import usuario.CadastroDoador;
-import usuario.CadastroReceptor;
+import usuario.CadastroUsuario;
 import usuario.LoginUsuario;
 import usuario.Usuario;
 
 public class Main {
     public static void main(String[] args) {
-        CadastroDoador.iniciar();
-        CadastroReceptor.iniciar();
+        CadastroUsuario.iniciar();
 
         try {
             Usuario usuario = LoginUsuario.iniciar();
