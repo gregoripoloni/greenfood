@@ -9,14 +9,24 @@ public class LoginUsuario {
     public static Usuario iniciar() throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Login de usuário\n");
+        System.out.println("Login de usuário");
 
-        System.out.print("Email: ");
+        System.out.println("Email: ");
         String email = scanner.nextLine();
 
-        System.out.print("Senha: ");
+        System.out.println("Senha: ");
         String senha = scanner.nextLine();
 
+        Usuario usuario = verificar(email, senha);
+
+        if (usuario == null) {
+            throw new Exception("Usuário não encontrado.");
+        }
+
+        return usuario;
+    }
+
+    private static Usuario verificar(String email, String senha) {
         List<Doador> doadores = PersistenciaDoador.obter();
 
         for (Doador doador : doadores) {
@@ -33,6 +43,6 @@ public class LoginUsuario {
             }
         }
 
-        throw new Exception("Usuário não encontrado");
+        return null;
     }
 }
