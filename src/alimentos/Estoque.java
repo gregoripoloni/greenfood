@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Estoque {
+	
+	public Estoque() {}
 	private ArrayList<Alimento> alimentosEstoque = new ArrayList<>();
 	
 	

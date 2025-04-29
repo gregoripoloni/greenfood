@@ -11,6 +11,8 @@ public class Alimento {
 	private int num = 0;
 	
 	// Construtor
+	public Alimento() {}
+	
 	public Alimento(String nome, int quantidade) {
 		this.nome = nome;
 		//this.validade = validade;

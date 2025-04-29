@@ -6,6 +6,8 @@ public class UsuarioSoTesteNaoEhOPrincipal {
     private String senha;
     private Estoque estoque = new Estoque();
     
+    public UsuarioSoTesteNaoEhOPrincipal() {}
+    
     public UsuarioSoTesteNaoEhOPrincipal(String nome) {
     	this.nome = nome;
     }

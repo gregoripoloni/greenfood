@@ -1,24 +1,31 @@
 package alimentos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class testeExe {
 	
 
 	public static void main(String[] args) {
-			List<UsuarioSoTesteNaoEhOPrincipal> todosUsers = EstoqueDAO.carregarUsuariosComEstoques("src/alimentos/data/estoque.txt");
-			//Alimento alimento = new Alimento("feijao", 20);
-			//EstoqueDAO estoqueDAO = new EstoqueDAO();
+			EstoqueDAO estoqueDAO = new EstoqueDAO();
+			List<UsuarioSoTesteNaoEhOPrincipal> todosUsers = estoqueDAO.recuperarEstoqueUsers("alimentos/data/estoque.json");
+			Alimento alimento = new Alimento("pao", 5);
+			UsuarioSoTesteNaoEhOPrincipal user = new UsuarioSoTesteNaoEhOPrincipal("Maisa");
 			
-			
-			//user.getEstoque().adicionaAoEstoque(alimento);
-			
-			for (UsuarioSoTesteNaoEhOPrincipal user : todosUsers) {
-			    System.out.println("Usuário: " + user.getNome());
-			    System.out.println(user.getEstoque());
+			if(todosUsers == null) {
+				todosUsers = new ArrayList<>();
 			}
 			
-			//estoqueDAO.salvarEstoque(user);
+			user.getEstoque().adicionaAoEstoque(alimento);
+			
+			todosUsers.add(user);
+			
+			for (UsuarioSoTesteNaoEhOPrincipal user1 : todosUsers) {
+			    System.out.println("Usuário: " + user1.getNome());
+			    System.out.println(user1.getEstoque());
+			}
+			
+			estoqueDAO.salvarEstoque(todosUsers);
 	}
 
 }
