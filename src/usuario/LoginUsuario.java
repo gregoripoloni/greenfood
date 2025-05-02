@@ -26,7 +26,7 @@ public class LoginUsuario {
         return usuario;
     }
 
-    private static Usuario verificar(String email, String senha) {
+    public static Usuario verificar(String email, String senha) throws Exception {
         List<Doador> doadores = PersistenciaDoador.obter();
 
         for (Doador doador : doadores) {
@@ -43,6 +43,6 @@ public class LoginUsuario {
             }
         }
 
-        return null;
+        throw new Exception("E-mail ou senha incorretos.");
     }
 }
