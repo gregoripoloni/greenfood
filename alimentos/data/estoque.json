@@ -1,0 +1,15 @@
+[
+  {
+    "nome": "Leonardo",
+    "estoque": {
+      "alimentosEstoque": [
+        {
+          "idAlimento": 1,
+          "nome": "milho",
+          "quantidade": 20,
+          "num": 0
+        }
+      ]
+    }
+  }
+]
