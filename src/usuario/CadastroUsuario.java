@@ -1,31 +1,11 @@
 package usuario;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CadastroUsuario {
-    public static void iniciar() throws Exception {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Cadastro de usuário");
-
-        System.out.println("Nome: ");
-        String nome = scanner.nextLine();
-
-        System.out.println("Email: ");
-        String email = scanner.nextLine();
-
-        System.out.println("Senha: ");
-        String senha = scanner.nextLine();
-
-        System.out.println("Telefone: ");
-        String telefone = scanner.nextLine();
-
-        System.out.println("Tipo: ");
-        String tipo = scanner.nextLine();
-
+    public static Usuario iniciar(String nome, String email, String senha, String telefone, String tipo) throws Exception {
         String erro = validar(nome, email, senha, telefone, tipo);
 
         if (erro != null) {
@@ -43,6 +23,8 @@ public class CadastroUsuario {
             Doador doador = new Doador(id, nome, email, senha, telefone);
 
             PersistenciaDoador.salvar(doador);
+
+            return doador;
         }
 
         if (tipo.equals(Receptor.TIPO)) {
@@ -56,12 +38,23 @@ public class CadastroUsuario {
             Receptor receptor = new Receptor(id, nome, email, senha, telefone);
 
             PersistenciaReceptor.salvar(receptor);
+
+            return receptor;
         }
+
+        return null;
     }
 
     private static String validar(String nome, String email, String senha, String telefone, String tipo) {
         if (nome.isEmpty()) {
             return "Nome é obrigatório.";
+        }
+
+        if (telefone.isEmpty()) {
+            return "Telefone é obrigatório.";
+        }
+        if (!validarTelefone(telefone)) {
+            return "Telefone inválido.";
         }
 
         if (email.isEmpty()) {
@@ -75,14 +68,7 @@ public class CadastroUsuario {
             return "Senha é obrigatória.";
         }
 
-        if (telefone.isEmpty()) {
-            return "Telefone é obrigatório.";
-        }
-        if (!validarTelefone(telefone)) {
-            return "Telefone inválido.";
-        }
-
-        if (tipo.isEmpty()) {
+        if (tipo == null || tipo.isEmpty()) {
             return "Tipo é obrigatório.";
         }
         if (!tipo.equals(Doador.TIPO) && !tipo.equals(Receptor.TIPO)) {

@@ -11,7 +11,7 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <Label fx:id="bemvindo">
+      <Label fx:id="welcomeLabel">
          <font>
             <Font size="24.0" />
          </font>
