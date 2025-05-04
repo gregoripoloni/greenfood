@@ -1,26 +1,46 @@
-package doacao_arquivos;
+package greenfood.model;
+
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Doacao implements Serializable {
-    private String id;
+    private int idDoacao;
     private Usuario doador;
     private Usuario receptor;
-    private Alimento alimento;
-    private int quantidade;
     private LocalDate data;
+    private List<Alimento> alimentos;
 
-    public Doacao(String id, Usuario doador, Usuario receptor, Alimento alimento, int quantidade, LocalDate data) {
-        this.id = id;
+    public Doacao(int idDoacao, Usuario doador, Usuario receptor, LocalDate data, List<Alimento> alimentos) {
+        this.idDoacao = idDoacao;
         this.doador = doador;
         this.receptor = receptor;
-        this.alimento = alimento;
-        this.quantidade = quantidade;
         this.data = data;
+        this.alimentos = alimentos;
     }
 
-    public String getId() {
-        return id;
+    public boolean verificarValidade() {
+        for (Alimento alimento : alimentos) {
+            if (alimento.getValidade().isBefore(LocalDate.now())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void atualizarQuantidade(String nomeAlimento, int novaQuantidade) {
+        for (Alimento alimento : alimentos) {
+            if (alimento.getNome().equalsIgnoreCase(nomeAlimento)) {
+                alimento.setQuantidade(novaQuantidade);
+                return;
+            }
+        }
+    }
+
+    // Getters e Setters
+
+    public int getIdDoacao() {
+        return idDoacao;
     }
 
     public Usuario getDoador() {
@@ -31,21 +51,20 @@ public class Doacao implements Serializable {
         return receptor;
     }
 
-    public Alimento getAlimento() {
-        return alimento;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
     public LocalDate getData() {
         return data;
     }
 
+    public List<Alimento> getAlimentos() {
+        return alimentos;
+    }
+
     @Override
     public String toString() {
-        return "Doação [" + id + "] - Alimento: " + alimento.getNome() + ", Quantidade: " + quantidade +
-                ", Doador: " + doador.getNome() + ", Receptor: " + receptor.getNome() + ", Data: " + data;
+        return "Doacao #" + idDoacao +
+                ", doador: " + doador.getNome() +
+                ", receptor: " + receptor.getNome() +
+                ", data: " + data +
+                ", alimentos: " + alimentos;
     }
 }

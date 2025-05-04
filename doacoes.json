@@ -1,20 +1,34 @@
 [
-    {
-      "id": "DOA001",
-      "doador": {
-        "nome": "Larissa"
-      },
-      "receptor": {
-        "nome": "Leonardo"
-      },
-      "alimento": {
+  {
+    "idDoacao": 1,
+    "doador": {
+      "nome": "Larissa",
+      "email": "larissa@greenfood.com",
+      "senhaCriptografada": "abc123",
+      "telefone": "555199999999",
+      "tipo": "DOADOR"
+    },
+    "receptor": {
+      "nome": "Leonardo",
+      "email": "leonardo@instituto.org",
+      "senhaCriptografada": "def456",
+      "telefone": "555188888888",
+      "tipo": "RECEPTOR"
+    },
+    "data": "2025-05-01",
+    "alimentos": [
+      {
         "nome": "Arroz",
         "categoria": "Grãos",
         "validade": "2025-06-01",
-        "quantidade": 50
+        "quantidade": 10
       },
-      "quantidade": 10,
-      "data": "2025-04-25"
-    }
-  ]
-  
+      {
+        "nome": "Feijão",
+        "categoria": "Grãos",
+        "validade": "2025-06-15",
+        "quantidade": 5
+      }
+    ]
+  }
+]
