@@ -7,17 +7,17 @@ public class Alimento {
 	private String nome;
 	private LocalDate validade;
 	private int quantidade;
-	private Categoria categoria;
+	private String categoria;
 	private int num = 0;
 	
 	// Construtor
 	public Alimento() {}
 	
-	public Alimento(String nome, int quantidade) {
+	public Alimento(String nome, int quantidade, LocalDate validade, String categoria) {
 		this.nome = nome;
-		//this.validade = validade;
+		this.validade = validade;
 		this.quantidade = quantidade;
-		//this.categoria = categoria;
+		this.categoria = categoria;
 		this.idAlimento = num + 1;
 	}
 	
@@ -52,10 +52,10 @@ public class Alimento {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	public Categoria getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 
