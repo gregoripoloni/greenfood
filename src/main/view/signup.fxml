@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="900.0" prefWidth="1440.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.SignupController">
+    <children>
+        <Label fx:id="myLabel" text="Cadastre-se">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+      <VBox prefHeight="0.0" prefWidth="560.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="328.0" text="Nome" />
+            <TextField fx:id="nameField" promptText="Digite seu nome" />
+         </children>
+      </VBox>
+      <VBox prefHeight="0.0" prefWidth="560.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="328.0" text="Telefone" />
+            <TextField fx:id="phoneField" promptText="Digite seu telefone" />
+         </children>
+      </VBox>
+        <VBox prefHeight="0.0" prefWidth="560.0">
+            <children>
+                <Label prefHeight="17.0" prefWidth="328.0" text="E-mail" />
+                <TextField fx:id="emailField" promptText="Digite seu e-mail" />
+            </children>
+        </VBox>
+        <VBox prefHeight="21.0" prefWidth="560.0">
+            <children>
+                <Label prefHeight="17.0" prefWidth="328.0" text="Senha" />
+                <PasswordField fx:id="passwordField" promptText="Digite sua senha" />
+            </children>
+        </VBox>
+      <VBox prefHeight="0.0" prefWidth="560.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="328.0" text="Tipo" />
+            <ChoiceBox fx:id="typeField" prefHeight="25.0" prefWidth="446.0" />
+         </children>
+      </VBox>
+        <Label fx:id="errorLabel" textFill="RED" />
+        <VBox alignment="CENTER" prefHeight="15.0" prefWidth="560.0" spacing="10.0">
+            <children>
+                <Button fx:id="signupButton" mnemonicParsing="false" onAction="#signUp" text="Cadastrar" />
+                <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" text="Voltar" />
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets left="500.0" right="500.0" />
+    </padding>
+</VBox>
