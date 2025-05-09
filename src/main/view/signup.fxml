@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.SignupController">
+<VBox alignment="CENTER" prefHeight="900.0" prefWidth="1440.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.SignupController">
     <children>
         <Label fx:id="myLabel" text="Cadastre-se">
             <font>
@@ -55,6 +55,6 @@
         </VBox>
     </children>
     <padding>
-        <Insets bottom="20.0" left="80.0" right="80.0" top="20.0" />
+        <Insets left="500.0" right="500.0" />
     </padding>
 </VBox>
