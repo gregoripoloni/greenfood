@@ -2,6 +2,7 @@ package main.controller;
 
 import java.time.LocalDate;
 
+import alimentos.Alimento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import main.MainApp;
+import usuario.Doador;
+import usuario.Usuario;
 
 public class CadastroController {
 	
@@ -29,6 +33,11 @@ public class CadastroController {
 	    
 	    @FXML
 	    private void salvarAlimento() {
+	    	
+	    	Usuario usuario = MainApp.getUser();
+	    	Doador doadorUser = (Doador) usuario;
+
+	    	
 	        String nome = tfNome.getText();
 	        String quantidadeTexto = tfQuantidade.getText();
 	        String categoria = cbCategoria.getValue();
@@ -37,10 +46,12 @@ public class CadastroController {
 	        
 	        quantidade = Integer.parseInt(quantidadeTexto);
 	        
-	        //Alimento alimento = new Alimento(nome, quantidade, data, categoria);
+	        Alimento alimento = new Alimento(nome, quantidade, data, categoria);
 	        
-	        System.out.println("Salvando: " + nome + " - " + quantidade + " - " + categoria + " - " + data);
-	                
+	        //doadorUser.getEstoque().adicionaAoEstoque(alimento);
+
+	        //System.out.println("Salvando: " + nome + " - " + quantidade + " - " + categoria + " - " + data);
+	        
 	    }
 	    
 	    @FXML

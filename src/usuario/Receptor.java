@@ -1,5 +1,6 @@
 package usuario;
 
+
 public class Receptor extends Usuario {
     public static final String TIPO = "receptor";
 
