@@ -33,26 +33,22 @@ public class CadastroController {
 	    
 	    @FXML
 	    private void salvarAlimento() {
-	    	
-	    	Usuario usuario = MainApp.getUser();
-	    	Doador doadorUser = (Doador) usuario;
+	        Doador doadorUser = (Doador) MainApp.getUser();
 
-	    	
-	        String nome = tfNome.getText();
-	        String quantidadeTexto = tfQuantidade.getText();
-	        String categoria = cbCategoria.getValue();
-	        LocalDate data = dpValidade.getValue();
-	        int quantidade;
 	        
-	        quantidade = Integer.parseInt(quantidadeTexto);
-	        
-	        Alimento alimento = new Alimento(nome, quantidade, data, categoria);
-	        
-	        doadorUser.getEstoque().adicionaAoEstoque(alimento);
+	            String nome = tfNome.getText();
+	            int quantidade = Integer.parseInt(tfQuantidade.getText());
+	            String categoria = cbCategoria.getValue();
+	            LocalDate validade = dpValidade.getValue();
 
-	        //System.out.println("Salvando: " + nome + " - " + quantidade + " - " + categoria + " - " + data);
+	            Alimento alimento = new Alimento(nome, quantidade, validade, categoria);
+	            //doadorUser.getEstoque().adicionaAoEstoque(alimento);
+	            
+	            
+	            System.out.println("Alimento salvo para: " + doadorUser.getNome());
 	        
 	    }
+
 	    
 	    @FXML
 	    private void cancelarCadastro() {
