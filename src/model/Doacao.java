@@ -1,4 +1,7 @@
-package greenfood.model;
+package model;
+
+import alimentos.Alimento;
+import usuario.Usuario;
 
 import java.io.Serializable;
 import java.time.LocalDate;
