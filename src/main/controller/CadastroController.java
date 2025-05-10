@@ -48,7 +48,7 @@ public class CadastroController {
 	        
 	        Alimento alimento = new Alimento(nome, quantidade, data, categoria);
 	        
-	        //doadorUser.getEstoque().adicionaAoEstoque(alimento);
+	        doadorUser.getEstoque().adicionaAoEstoque(alimento);
 
 	        //System.out.println("Salvando: " + nome + " - " + quantidade + " - " + categoria + " - " + data);
 	        

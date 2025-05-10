@@ -1,14 +1,6 @@
 [
   {
     "id": 1,
-    "nome": "Doador",
-    "email": "doador@gmail.com",
-    "senha": "b5e200b84bddb774939267e6ef9bb21a8becb0f8896336bd61d4bc1ea0ce2163",
-    "telefone": "54987654321",
-    "tipo": "doador"
-  },
-  {
-    "id": 2,
     "nome": "admin",
     "email": "admin@admin",
     "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",

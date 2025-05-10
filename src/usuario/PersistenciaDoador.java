@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +14,12 @@ public class PersistenciaDoador {
     private static final String ARQUIVO = "doadores.json";
 
     public static void salvar(Doador doador) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder()
+            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+            .setPrettyPrinting()
+            .create();
+            
         List<Doador> doadores = PersistenciaDoador.obter();
-
         doadores.add(doador);
 
         try (Writer writer = new FileWriter(ARQUIVO)) {
@@ -25,10 +29,14 @@ public class PersistenciaDoador {
         }
     }
 
-    public static List<Doador> obter() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Doador> doadores = new ArrayList<>();
 
+    public static List<Doador> obter() {
+        Gson gson = new GsonBuilder()
+            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+            .setPrettyPrinting()
+            .create();
+
+        List<Doador> doadores = new ArrayList<>();
         File arquivo = new File(ARQUIVO);
 
         if (arquivo.exists() && arquivo.length() > 0) {
@@ -42,4 +50,5 @@ public class PersistenciaDoador {
 
         return doadores;
     }
+
 }
