@@ -46,8 +46,6 @@ public class HomeController {
     }
 
     public void addFood(ActionEvent actionEvent) throws IOException {
-        MainApp.setUser(null);
-
         Stage stage = (Stage) foodButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/CadastroAlimento.fxml"));
         stage.setTitle("Greenfood - AddFood");
@@ -55,8 +53,6 @@ public class HomeController {
     }
 
     public void goToFoods(ActionEvent actionEvent) throws IOException {
-        MainApp.setUser(null);
-
         Stage stage = (Stage) foodMenu.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/MenuAlimentos.fxml"));
         stage.setTitle("Greenfood - FoodList");
