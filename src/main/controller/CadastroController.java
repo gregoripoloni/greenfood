@@ -1,19 +1,16 @@
-package controllers;
+package main.controller;
 
 import java.time.LocalDate;
 
-import alimentos.Alimento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class CadastroController {
@@ -65,7 +62,7 @@ public class CadastroController {
 	        try {
 	            // Carregar a nova tela (MenuAlimentos.fxml)
 	            
-	            Parent newRoot = FXMLLoader.load(getClass().getResource("/application/MenuAlimentos.fxml"));
+	            Parent newRoot = FXMLLoader.load(getClass().getResource("/main/view/MenuAlimentos.fxml"));
 
 	            // Criar uma nova cena com o layout carregado
 	            Scene newScene = new Scene(newRoot);

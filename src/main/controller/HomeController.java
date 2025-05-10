@@ -18,6 +18,8 @@ public class HomeController {
     @FXML
     private Button logoutMenu;
     @FXML
+    private Button foodMenu;
+    @FXML
     private Button foodButton;
     @FXML
     private Button donationButton;
@@ -40,6 +42,24 @@ public class HomeController {
         Stage stage = (Stage) logoutMenu.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/login.fxml"));
         stage.setTitle("Greenfood - LogIn");
+        stage.setScene(new Scene(root));
+    }
+
+    public void addFood(ActionEvent actionEvent) throws IOException {
+        MainApp.setUser(null);
+
+        Stage stage = (Stage) foodButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/CadastroAlimento.fxml"));
+        stage.setTitle("Greenfood - AddFood");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToFoods(ActionEvent actionEvent) throws IOException {
+        MainApp.setUser(null);
+
+        Stage stage = (Stage) foodMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/MenuAlimentos.fxml"));
+        stage.setTitle("Greenfood - FoodList");
         stage.setScene(new Scene(root));
     }
 }

@@ -12,7 +12,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button fx:id="foodButton" mnemonicParsing="false" />
+                  <Button fx:id="foodButton" mnemonicParsing="false" onAction="#addFood" />
                   <Button fx:id="donationButton" mnemonicParsing="false" />
                </children>
             </HBox>
@@ -23,7 +23,7 @@
       <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Home" />
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Alimentos" />
+            <Button fx:id="foodMenu" mnemonicParsing="false" onAction="#goToFoods" style="-fx-background-color: transparent;" text="Alimentos" />
             <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Doações" />
             <Button fx:id="logoutMenu" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: transparent;" text="Sair" />
          </children>

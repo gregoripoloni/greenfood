@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadastroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.CadastroController">
    <children>
       <TextField fx:id="tfQuantidade" layoutX="252.0" layoutY="216.0" prefHeight="26.0" prefWidth="262.0" promptText="Digite a quantidade..." style="-fx-background-color: #DDDDDD;" />
       <TextField fx:id="tfNome" layoutX="252.0" layoutY="154.0" prefHeight="26.0" prefWidth="262.0" promptText="Digite o nome do alimento..." style="-fx-background-color: #DDDDDD;" />
