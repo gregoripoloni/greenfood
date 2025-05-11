@@ -1,5 +1,9 @@
 package main.controller;
 
+import java.io.IOException;
+import java.util.List;
+
+import alimentos.Alimento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +12,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import usuario.PersistenciaDoador;
 
 public class MenuController {
+	
+	@FXML
+	private void initialize() {
+		List<Alimento> alimentos = PersistenciaDoador.recuperarTodosAlimentos();
+		
+		System.out.println("Qnts aliments tem:"+alimentos.size());
+    }
 	
 	 @FXML
 	    private void abrirHome(ActionEvent event) {

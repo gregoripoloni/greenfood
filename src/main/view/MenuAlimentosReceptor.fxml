@@ -46,11 +46,6 @@
          </font>
       </Button>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#d7dee4" height="349.0" layoutX="50.0" layoutY="80.0" opacity="0.72" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="671.0" />
-      <ImageView fitHeight="90.0" fitWidth="130.0" layoutX="103.0" layoutY="110.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../../Pictures/Screenshots/Captura%20de%20tela%202023-11-11%20230833.png" />
-         </image>
-      </ImageView>
       <Text layoutX="243.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laranja">
          <font>
             <Font size="15.0" />
@@ -66,11 +61,6 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <ImageView fitHeight="90.0" fitWidth="130.0" layoutX="102.0" layoutY="240.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../../Pictures/Screenshots/Captura%20de%20tela%202023-11-11%20230833.png" />
-         </image>
-      </ImageView>
       <Text layoutX="242.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Café">
          <font>
             <Font size="15.0" />

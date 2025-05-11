@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import alimentos.Alimento;
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
@@ -71,6 +73,45 @@ public class PersistenciaDoador {
             e.printStackTrace();
         }
     }
+    
+    public static List<Alimento> recuperarTodosAlimentos() {
+        List<Alimento> todosAlimentos = new ArrayList<>();
+
+        List<Doador> doadores = recuperarTodos(); // já existe
+        for (Doador doador : doadores) {
+            todosAlimentos.addAll(doador.getEstoque().getAlimentosEstoque());
+        }
+
+        return todosAlimentos;
+    }
+
+
+    public static List<Doador> recuperarTodos() {
+        List<Doador> doadores = new ArrayList<>();
+        File pasta = new File("doadores.json"); // ou o caminho que você usa
+
+        if (pasta.exists() && pasta.isFile()) {  // Verifica se o arquivo JSON existe
+            try (FileReader reader = new FileReader(pasta)) {
+                // Cria um GsonBuilder e registra o adapter personalizado
+                Gson gson = new GsonBuilder()
+                        .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                        .create();
+
+                // Define o tipo para a lista de Doadores
+                Type tipoLista = new TypeToken<List<Doador>>(){}.getType();
+                doadores = gson.fromJson(reader, tipoLista);
+            } catch (IOException e) {
+                System.err.println("Erro ao ler o arquivo JSON: " + pasta.getName());
+                e.printStackTrace();
+            }
+        }
+
+        return doadores;
+    }
+
+
+
+
 
 
 }
