@@ -88,7 +88,7 @@
       </Text>
       <ImageView fitHeight="101.0" fitWidth="106.0" layoutX="14.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Downloads/GreenFood-removebg-preview.png" />
+            <Image url="@../../img/GreenFood_noBG.png" />
          </image>
       </ImageView>
       <Button layoutX="532.0" layoutY="135.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="131.0" style="-fx-background-radius: 15; -fx-background-color: green;" text="QUERO ESSE" textAlignment="CENTER" textFill="WHITE">

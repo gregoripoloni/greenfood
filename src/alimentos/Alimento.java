@@ -3,12 +3,10 @@ package alimentos;
 import java.time.LocalDate;
 
 public class Alimento {
-	private int idAlimento;
 	private String nome;
 	private LocalDate validade;
 	private int quantidade;
 	private String categoria;
-	private int num = 0;
 	
 	// Construtor
 	public Alimento() {}
@@ -18,7 +16,6 @@ public class Alimento {
 		this.validade = validade;
 		this.quantidade = quantidade;
 		this.categoria = categoria;
-		this.idAlimento = num + 1;
 	}
 	
 	// Verifica se esta na validade
@@ -57,10 +54,6 @@ public class Alimento {
 	}
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
-	}
-
-	public int getIdAlimento() {
-		return idAlimento;
 	}
 
 

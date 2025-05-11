@@ -50,5 +50,27 @@ public class PersistenciaDoador {
 
         return doadores;
     }
+    
+    public static void atualizar(Doador doadorAtualizado) {
+        List<Doador> doadores = obter();
+        for (int i = 0; i < doadores.size(); i++) {
+            if (doadores.get(i).getId() == doadorAtualizado.getId()) {
+                doadores.set(i, doadorAtualizado);
+                break;
+            }
+        }
+
+        Gson gson = new GsonBuilder()
+        	    .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+        	    .setPrettyPrinting()
+        	    .create();
+
+        try (Writer writer = new FileWriter(ARQUIVO)) {
+            gson.toJson(doadores, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

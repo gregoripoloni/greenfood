@@ -45,7 +45,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button contentDisplay="BOTTOM" layoutX="467.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;" text="Home">
+      <Button fx:id="btnHome" contentDisplay="BOTTOM" layoutX="467.0" mnemonicParsing="false" onAction="#abrirHome" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;" text="Home">
          <effect>
             <Lighting>
                <light>
@@ -103,7 +103,7 @@
       </Text>
       <ImageView fitHeight="101.0" fitWidth="106.0" layoutX="14.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Downloads/GreenFood-removebg-preview.png" />
+            <Image url="@../../img/GreenFood_noBG.png" />
          </image>
       </ImageView>
       <Button layoutX="424.0" layoutY="135.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="131.0" style="-fx-background-radius: 15; -fx-background-color: green;" text="EDITAR" textAlignment="CENTER" textFill="WHITE">

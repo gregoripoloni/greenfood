@@ -1,10 +1,32 @@
 [
   {
+    "estoque": {
+      "alimentosEstoque": [
+        {
+          "nome": "a",
+          "validade": "2025-05-09",
+          "quantidade": 2,
+          "categoria": "Verdura"
+        },
+        {
+          "nome": "cafe",
+          "validade": "2025-05-23",
+          "quantidade": 2,
+          "categoria": "Outros"
+        },
+        {
+          "nome": "Milho",
+          "validade": "2025-05-16",
+          "quantidade": 6,
+          "categoria": "Verdura"
+        }
+      ]
+    },
     "id": 1,
     "nome": "admin",
     "email": "admin@admin",
     "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-    "telefone": "5432926773",
+    "telefone": "1234567891",
     "tipo": "doador"
   }
 ]
