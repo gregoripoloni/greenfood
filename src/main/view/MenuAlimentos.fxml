@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MenuController">
    <children>
@@ -62,73 +61,15 @@
          </font>
       </Button>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#d7dee4" height="349.0" layoutX="50.0" layoutY="80.0" opacity="0.72" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="671.0" />
-      <Text layoutX="310.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laranja">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="310.0" layoutY="124.0" opacity="0.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria: Fruta">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="310.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Validade: 21/03/2026">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="309.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Café">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="309.0" layoutY="253.0" opacity="0.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria: Não Perecível">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="309.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Validade: 21/03/2026">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
       <ImageView fitHeight="101.0" fitWidth="106.0" layoutX="14.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/GreenFood_noBG.png" />
          </image>
       </ImageView>
-      <Button layoutX="491.0" layoutY="102.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="131.0" style="-fx-background-radius: 15; -fx-background-color: green;" text="EDITAR" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="641.0" layoutY="102.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="131.0" style="-fx-background-radius: 15; -fx-background-color: red;" text="EXCLUIR" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="491.0" layoutY="242.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="131.0" style="-fx-background-radius: 15; -fx-background-color: green;" text="EDITAR" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="641.0" layoutY="242.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="131.0" style="-fx-background-radius: 15; -fx-background-color: red;" text="EXCLUIR" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <VBox fx:id="containerAlimentos" layoutX="78.0" layoutY="86.0" prefHeight="322.0" prefWidth="230.0" style="-fx-border-color: red;" />
+      <ScrollPane layoutX="184.0" layoutY="79.0" prefHeight="350.0" prefWidth="402.0">
+         <content>
+            <VBox fx:id="vboxAlimentos" prefHeight="348.0" prefWidth="404.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

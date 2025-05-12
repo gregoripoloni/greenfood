@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import alimentos.Alimento;
+import main.MainApp;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -74,6 +75,7 @@ public class PersistenciaDoador {
         }
     }
     
+    //Listar para Receptores MenuAlimentoReceptor
     public static List<Alimento> recuperarTodosAlimentos() {
         List<Alimento> todosAlimentos = new ArrayList<>();
 
@@ -84,6 +86,17 @@ public class PersistenciaDoador {
 
         return todosAlimentos;
     }
+    
+    public static List<Alimento> recuperarAlimentosDoUsuarioLogado() {
+        Doador doadorUser = (Doador) MainApp.getUser();
+
+        if (doadorUser != null && doadorUser.getEstoque() != null) {
+            return doadorUser.getEstoque().getAlimentosEstoque();
+        }
+
+        return new ArrayList<>(); // Retorna lista vazia se não houver usuário ou estoque
+    }
+
 
 
     public static List<Doador> recuperarTodos() {
@@ -107,6 +120,19 @@ public class PersistenciaDoador {
         }
 
         return doadores;
+    }
+
+    public static void salvarTodos(List<Doador> doadores) {
+        try (FileWriter writer = new FileWriter("doadores.json")) {
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                    .setPrettyPrinting()
+                    .create();
+            gson.toJson(doadores, writer);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar todos os doadores.");
+            e.printStackTrace();
+        }
     }
 
 
