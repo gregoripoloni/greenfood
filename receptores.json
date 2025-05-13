@@ -6,5 +6,13 @@
     "senha": "d0910f835a0cf9cfa5a48ee62d7e0b4f8b7149d4747380e782aa6417334b1336",
     "telefone": "54998765432",
     "tipo": "receptor"
+  },
+  {
+    "id": 2,
+    "nome": "receptor",
+    "email": "receptor@receptor",
+    "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "telefone": "1234567891",
+    "tipo": "receptor"
   }
 ]

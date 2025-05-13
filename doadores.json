@@ -3,24 +3,6 @@
     "estoque": {
       "alimentosEstoque": [
         {
-          "nome": "Milho",
-          "validade": "2025-05-30",
-          "quantidade": 3,
-          "categoria": "Outros"
-        }
-      ]
-    },
-    "id": 2,
-    "nome": "teste",
-    "email": "teste@teste",
-    "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-    "telefone": "1234567891",
-    "tipo": "doador"
-  },
-  {
-    "estoque": {
-      "alimentosEstoque": [
-        {
           "nome": "Laranja",
           "validade": "2025-05-20",
           "quantidade": 11,
