@@ -1,6 +1,5 @@
 package alimentos;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Estoque {

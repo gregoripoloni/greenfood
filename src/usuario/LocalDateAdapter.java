@@ -1,8 +1,9 @@
 package usuario;
 
-import com.google.gson.*;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
+
+import com.google.gson.*;
 
 public class LocalDateAdapter implements JsonSerializer<LocalDate>, JsonDeserializer<LocalDate> {
     @Override

@@ -1,9 +1,9 @@
 package usuario;
 
-import criptografia.SHA256;
-
 import java.util.List;
 import java.util.Scanner;
+
+import criptografia.SHA256;
 
 public class LoginUsuario {
     public static Usuario iniciar() throws Exception {
