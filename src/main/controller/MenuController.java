@@ -1,8 +1,5 @@
 package main.controller;
 
-import java.io.IOException;
-import java.util.List;
-
 import alimentos.Alimento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,8 +15,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.MainApp;
-import usuario.Doador;
-import usuario.PersistenciaDoador;
+import model.Doador;
+import persistence.DoadorDAO;
+
+import java.io.IOException;
+import java.util.List;
 
 public class MenuController {
 	
@@ -28,7 +28,7 @@ public class MenuController {
 	
 	@FXML
 	private void initialize() {
-		List<Alimento> alimentos = PersistenciaDoador.recuperarAlimentosDoUsuarioLogado();
+		List<Alimento> alimentos = DoadorDAO.recuperarAlimentosDoUsuarioLogado();
 		
 		for (Alimento alimento : alimentos) {
 		    VBox card = new VBox(10);
@@ -70,7 +70,7 @@ public class MenuController {
 		        doadorLogado.getEstoque().getAlimentosEstoque().remove(alimento);
 
 		        // Recupera todos os doadores
-		        List<Doador> todosDoadores = PersistenciaDoador.recuperarTodos();
+		        List<Doador> todosDoadores = DoadorDAO.recuperarTodos();
 
 		        // Substitui o doador antigo pelo atualizado
 		        for (int i = 0; i < todosDoadores.size(); i++) {
@@ -81,7 +81,7 @@ public class MenuController {
 		        }
 
 		        // Salva toda a lista atualizada
-		        PersistenciaDoador.salvarTodos(todosDoadores); // você vai precisar criar este método
+		        DoadorDAO.salvarTodos(todosDoadores); // você vai precisar criar este método
 
 		        // Remove o card da interface
 		        ((VBox) card.getParent()).getChildren().remove(card);

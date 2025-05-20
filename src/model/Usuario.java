@@ -1,6 +1,6 @@
-package usuario;
+package model;
 
-import criptografia.SHA256;
+import utils.SHA256;
 
 public abstract class Usuario {
     private int id;

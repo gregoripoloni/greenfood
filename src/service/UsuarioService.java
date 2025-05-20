@@ -1,11 +1,18 @@
-package usuario;
+package service;
+
+import model.Doador;
+import model.Receptor;
+import model.Usuario;
+import persistence.DoadorDAO;
+import persistence.ReceptorDAO;
+import utils.SHA256;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CadastroUsuario {
-    public static Usuario iniciar(String nome, String email, String senha, String telefone, String tipo) throws Exception {
+public class UsuarioService {
+    public Usuario cadastrar(String nome, String email, String senha, String telefone, String tipo) throws Exception {
         String erro = validar(nome, email, senha, telefone, tipo);
 
         if (erro != null) {
@@ -13,7 +20,7 @@ public class CadastroUsuario {
         }
 
         if (tipo.equals(Doador.TIPO)) {
-            List<Doador> doadores = PersistenciaDoador.obter();
+            List<Doador> doadores = DoadorDAO.obter();
 
             int id = doadores.stream()
                     .mapToInt(Usuario::getId)
@@ -22,13 +29,13 @@ public class CadastroUsuario {
 
             Doador doador = new Doador(id, nome, email, senha, telefone);
 
-            PersistenciaDoador.salvar(doador);
+            DoadorDAO.salvar(doador);
 
             return doador;
         }
 
         if (tipo.equals(Receptor.TIPO)) {
-            List<Receptor> receptores = PersistenciaReceptor.obter();
+            List<Receptor> receptores = ReceptorDAO.obter();
 
             int id = receptores.stream()
                     .mapToInt(Usuario::getId)
@@ -37,7 +44,7 @@ public class CadastroUsuario {
 
             Receptor receptor = new Receptor(id, nome, email, senha, telefone);
 
-            PersistenciaReceptor.salvar(receptor);
+            ReceptorDAO.salvar(receptor);
 
             return receptor;
         }
@@ -45,7 +52,27 @@ public class CadastroUsuario {
         return null;
     }
 
-    private static String validar(String nome, String email, String senha, String telefone, String tipo) {
+    public Usuario autenticar(String email, String senha) throws Exception {
+        List<Doador> doadores = DoadorDAO.obter();
+
+        for (Doador doador : doadores) {
+            if (email.equals(doador.getEmail()) && SHA256.aplicar(senha).equals(doador.getSenha())) {
+                return doador;
+            }
+        }
+
+        List<Receptor> receptores = ReceptorDAO.obter();
+
+        for (Receptor receptor : receptores) {
+            if (email.equals(receptor.getEmail()) && SHA256.aplicar(senha).equals(receptor.getSenha())) {
+                return receptor;
+            }
+        }
+
+        throw new Exception("E-mail ou senha incorretos.");
+    }
+
+    private String validar(String nome, String email, String senha, String telefone, String tipo) {
         if (nome.isEmpty()) {
             return "Nome é obrigatório.";
         }
@@ -78,14 +105,14 @@ public class CadastroUsuario {
         return null;
     }
 
-    private static boolean validarEmail(String email) {
+    private boolean validarEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 
-    private static boolean validarTelefone(String telefone) {
+    private boolean validarTelefone(String telefone) {
         return telefone.matches("\\d{10,11}");
     }
 }
