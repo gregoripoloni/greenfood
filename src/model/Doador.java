@@ -1,7 +1,5 @@
 package model;
 
-import alimentos.Estoque;
-
 public class Doador extends Usuario {
     public static final String TIPO = "doador";
     private Estoque estoque;

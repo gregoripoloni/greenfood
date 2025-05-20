@@ -1,6 +1,6 @@
 package persistence;
 
-import alimentos.Alimento;
+import model.Alimento;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

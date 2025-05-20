@@ -1,6 +1,6 @@
 package main.controller;
 
-import alimentos.Alimento;
+import model.Alimento;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
