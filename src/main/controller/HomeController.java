@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import main.MainApp;
-import usuario.Doador;
+import usuario.Receptor;
 import usuario.Usuario;
 
 public class HomeController {
@@ -19,19 +19,16 @@ public class HomeController {
     @FXML
     private Button foodMenu;
     @FXML
-    private Button foodButton;
+    private Button addFoodButton;
     @FXML
-    private Button donationButton;
+    private Button addDonationButton;
 
     public void initialize() {
         Usuario usuario = MainApp.getUser();
 
-        if (usuario.getTipo().equals(Doador.TIPO)) {
-            foodButton.setText("Cadastrar alimento");
-            donationButton.setText("Cadastrar doação");
-        } else {
-            foodButton.setVisible(false);
-            donationButton.setText("Consultar doações");
+        if (usuario.getTipo().equals(Receptor.TIPO)) {
+            addFoodButton.setVisible(false);
+            addDonationButton.setVisible(false);
         }
     }
 
@@ -45,7 +42,7 @@ public class HomeController {
     }
 
     public void addFood(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) foodButton.getScene().getWindow();
+        Stage stage = (Stage) addFoodButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/CadastroAlimento.fxml"));
         stage.setTitle("Greenfood - AddFood");
         stage.setScene(new Scene(root));
