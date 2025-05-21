@@ -1,8 +1,10 @@
 package model;
 
+import alimentos.Alimento;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import usuario.Usuario;
 
 public class Doacao implements Serializable {
     private int idDoacao;

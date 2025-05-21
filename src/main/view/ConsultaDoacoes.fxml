@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="main.controller.ConsultaDoacoesController" prefWidth="600" prefHeight="400">
+    <children>
+        <Label text="Doações Cadastradas" layoutX="200" layoutY="20">
+            <font><Font size="20.0"/></font>
+        </Label>
+        <TableView fx:id="tabelaDoacoes" layoutX="30" layoutY="70" prefWidth="540" prefHeight="280">
+            <columns>
+                <TableColumn fx:id="colNome" text="Produto" prefWidth="180"/>
+                <TableColumn fx:id="colCategoria" text="Categoria" prefWidth="180"/>
+                <TableColumn fx:id="colValidade" text="Validade" prefWidth="180"/>
+            </columns>
+        </TableView>
+        <Button text="Fechar" layoutX="250" layoutY="360" onAction="#fecharJanela" prefWidth="100"/>
+    </children>
+</AnchorPane>
