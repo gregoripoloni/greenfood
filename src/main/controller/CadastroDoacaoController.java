@@ -1,146 +1,94 @@
 package main.controller;
 
-import java.time.LocalDate;
-
-import alimentos.Alimento;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import main.MainApp;
 import usuario.Doador;
 import usuario.PersistenciaDoador;
-import usuario.Usuario;
+import alimentos.Alimento;
 
-public class CadastroController {
-	
-	 	@FXML private TextField tfNome;
-	    @FXML private TextField tfQuantidade;
-	    @FXML private ChoiceBox<String> cbCategoria;
-	    @FXML private DatePicker dpValidade;
-	    @FXML private Label errorLabel;
-	    
-		public void mostrarPopupSucesso() {
-		    Alert alerta = new Alert(AlertType.INFORMATION);
-		    alerta.setTitle("Sucesso");
-		    alerta.setHeaderText(null);
-		    alerta.setContentText("Ação realizada com sucesso!");
-		    alerta.showAndWait();
-		}
-	    
-	    @FXML
-	    private void initialize() {
-	        // Preencher as categorias no ComboBox
-	        cbCategoria.getItems().addAll("Fruta", "Verdura", "Laticínio", "Carne", "Outros");
-	    }
-	    
-	    @FXML
-	    private void salvarAlimento() {
-	        Doador doadorUser = (Doador) MainApp.getUser();
+import java.util.List;
 
-	        String nome = tfNome.getText();
-	        String quantidadeTexto = tfQuantidade.getText();
-	        String categoria = cbCategoria.getValue();
-	        LocalDate validade = dpValidade.getValue();
+public class CadastroDoacaoController {
 
-	        // Verifica se algum campo está vazio ou nulo
-	        if (nome == null || nome.isEmpty() ||
-	            quantidadeTexto == null || quantidadeTexto.isEmpty() ||
-	            categoria == null || validade == null) {
+    @FXML private ComboBox<Alimento> cbAlimento;
+    @FXML private TextField tfQuantidade;
 
-	            errorLabel.setText("Preencha todos os campos!");
-	            return;
-	        }
+    private Doador doadorLogado;
 
-	        int quantidade;
-	        try {
-	            quantidade = Integer.parseInt(quantidadeTexto);
-	        } catch (NumberFormatException e) {
-	            errorLabel.setText("Quantidade Inválida!");
-	            return;
-	        }
+    @FXML
+    public void initialize() {
+        if (MainApp.getUser() instanceof Doador) {
+            doadorLogado = (Doador) MainApp.getUser();
 
-	        // Tudo preenchido corretamente
-	        errorLabel.setText("");
+            List<Alimento> alimentos = doadorLogado.getEstoque().getAlimentosEstoque(); // se estiver usando estoque
 
-	        Alimento alimento = new Alimento(nome, quantidade, validade, categoria);
-	        doadorUser.getEstoque().adicionaAoEstoque(alimento);
+            if (alimentos != null && !alimentos.isEmpty()) {
+                cbAlimento.getItems().addAll(alimentos);
+            } else {
+                System.out.println("Nenhum alimento encontrado no estoque do doador.");
+            }
+        } else {
+            System.out.println("Usuário não é um doador ou não está logado.");
+        }
+    }
 
-	        System.out.println("Alimento salvo para: " + doadorUser.getNome());
-	        System.out.println("Estoque: " + doadorUser.getEstoque().getAlimentosEstoque());
+    @FXML
+    private void salvarDoacao() {
+        Alimento alimentoSelecionado = cbAlimento.getValue();
+        String qtdTexto = tfQuantidade.getText();
 
-	        mostrarPopupSucesso(); // Supondo que este método existe
+        if (alimentoSelecionado == null || qtdTexto.isEmpty()) {
+            showAlert("Erro", "Selecione um alimento e insira a quantidade.");
+            return;
+        }
 
-	        PersistenciaDoador.atualizar(doadorUser);
-	    }
+        int quantidade;
+        try {
+            quantidade = Integer.parseInt(qtdTexto);
+        } catch (NumberFormatException e) {
+            showAlert("Erro", "Quantidade inválida.");
+            return;
+        }
 
+        if (quantidade <= 0 || quantidade > alimentoSelecionado.getQuantidade()) {
+            showAlert("Erro", "Quantidade fora do limite disponível.");
+            return;
+        }
 
+        // Atualiza a quantidade no alimento
+        alimentoSelecionado.setQuantidade(alimentoSelecionado.getQuantidade() - quantidade);
 
-	    
-	    @FXML
-	    private void cancelarCadastro() {
-	    	tfNome.clear();
-	    	tfQuantidade.clear();
-	    	cbCategoria.setValue(null);
-	    	dpValidade.setValue(null);
-	    	
-	    }
-	    
-	    @FXML
-	    private void testeBotao() {
-	    	System.out.println("Ta ino!");
-	    }
-	    
-	    @FXML
-	    private void abrirMenuAlimentos(ActionEvent event) {
-	        try {
-	            // Carregar a nova tela (MenuAlimentos.fxml)
-	            
-	            Parent newRoot = FXMLLoader.load(getClass().getResource("/main/view/MenuAlimentos.fxml"));
+        // Atualiza JSON do doador
+        List<Doador> todos = PersistenciaDoador.recuperarTodos();
+        for (int i = 0; i < todos.size(); i++) {
+            if (todos.get(i).getEmail().equals(doadorLogado.getEmail())) {
+                todos.set(i, doadorLogado);
+                break;
+            }
+        }
+        PersistenciaDoador.salvarTodos(todos);
 
-	            // Criar uma nova cena com o layout carregado
-	            Scene newScene = new Scene(newRoot);
+        showAlert("Sucesso", "Doação registrada com sucesso!");
+        fecharJanela();
+    }
 
-	            // Obter o estágio atual (a janela onde a tela está sendo exibida)
-	            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	            currentStage.setScene(newScene); // Mudar para a nova cena
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
-	    
-	    @FXML
-	    private void abrirHome(ActionEvent event) {
-	    	
-	    	try {
-	            // Carregar a nova tela (MenuAlimentos.fxml)
-	            
-	            Parent newRoot = FXMLLoader.load(getClass().getResource("/main/view/home.fxml"));
+    @FXML
+    private void cancelar() {
+        fecharJanela();
+    }
 
-	            // Criar uma nova cena com o layout carregado
-	            Scene newScene = new Scene(newRoot);
+    private void showAlert(String titulo, String mensagem) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
 
-	            // Obter o estágio atual (a janela onde a tela está sendo exibida)
-	            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	            currentStage.setScene(newScene); // Mudar para a nova cena
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        
-	    	
-	    }
-	    }
-
-
-	    
-	    
-    
+    private void fecharJanela() {
+        Stage stage = (Stage) tfQuantidade.getScene().getWindow();
+        stage.close();
+    }
 }

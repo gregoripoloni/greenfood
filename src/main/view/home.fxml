@@ -13,7 +13,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
                   <Button fx:id="foodButton" mnemonicParsing="false" onAction="#addFood" />
-                  <Button fx:id="donationButton" mnemonicParsing="false" />
+                  <Button fx:id="donationButton" mnemonicParsing="false" onAction="#abrirCadastroDoacao"/>
                </children>
             </HBox>
          </children>
