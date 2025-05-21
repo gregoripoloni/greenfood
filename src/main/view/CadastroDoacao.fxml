@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="main.controller.CadastroDoacaoController" prefWidth="500" prefHeight="300" style="-fx-background-color: #F0F0F0;">
+    <children>
+        <Label text="Cadastrar Doação" layoutX="180" layoutY="20">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+
+        <Label layoutX="70" layoutY="80" text="Alimento:"/>
+        <ComboBox fx:id="cbAlimento" layoutX="150" layoutY="75" prefWidth="250"/>
+
+        <Label layoutX="70" layoutY="130" text="Quantidade:"/>
+        <TextField fx:id="tfQuantidade" layoutX="150" layoutY="125" prefWidth="250" promptText="Digite a quantidade"/>
+
+        <Button fx:id="btnSalvar" text="Salvar" layoutX="270" layoutY="200" prefWidth="130" onAction="#salvarDoacao" style="-fx-background-color: green; -fx-text-fill: white;"/>
+        <Button fx:id="btnCancelar" text="Cancelar" layoutX="100" layoutY="200" prefWidth="130" onAction="#cancelar" style="-fx-background-color: red; -fx-text-fill: white;"/>
+    </children>
+</AnchorPane>
