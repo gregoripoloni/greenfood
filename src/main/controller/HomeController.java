@@ -19,6 +19,8 @@ public class HomeController {
     @FXML
     private Button foodMenu;
     @FXML
+    private Button donationMenu;
+    @FXML
     private Button addFoodButton;
     @FXML
     private Button addDonationButton;
@@ -59,6 +61,13 @@ public class HomeController {
         Stage stage = (Stage) addDonationButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/CadastroDoacao.fxml"));
         stage.setTitle("Greenfood - AddDonation");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToDonations(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) donationMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/ConsultaDoacoes.fxml"));
+        stage.setTitle("Greenfood - DonationList");
         stage.setScene(new Scene(root));
     }
 }

@@ -45,7 +45,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Doações">
+                  <Button fx:id="donationMenu" mnemonicParsing="false" onAction="#goToDonations" style="-fx-background-color: transparent;" text="Doações">
                      <font>
                         <Font size="16.0" />
                      </font>
