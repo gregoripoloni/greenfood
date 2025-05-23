@@ -1,15 +1,15 @@
 package main.controller;
 
-import java.util.List;
-
-import alimentos.Alimento;
+import model.Alimento;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.MainApp;
-import usuario.Doador;
-import usuario.PersistenciaDoador;
+import model.Doador;
+import persistence.DoadorDAO;
+
+import java.util.List;
 
 public class EditarAlimentoController {
 	@FXML private TextField tfNome;
@@ -33,7 +33,7 @@ public class EditarAlimentoController {
 
 	        // Atualizar JSON
 	        Doador doadorLogado = (Doador) MainApp.getUser();
-	        List<Doador> todosDoadores = PersistenciaDoador.recuperarTodos();
+	        List<Doador> todosDoadores = DoadorDAO.recuperarTodos();
 
 	        for (int i = 0; i < todosDoadores.size(); i++) {
 	            if (todosDoadores.get(i).getEmail().equals(doadorLogado.getEmail())) {
@@ -42,7 +42,7 @@ public class EditarAlimentoController {
 	            }
 	        }
 
-	        PersistenciaDoador.salvarTodos(todosDoadores);
+	        DoadorDAO.salvarTodos(todosDoadores);
 
 	        // Fechar janela
 	        Stage stage = (Stage) tfNome.getScene().getWindow();

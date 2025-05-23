@@ -1,33 +1,29 @@
-package usuario;
+package persistence;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
+import model.Alimento;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import main.MainApp;
+import model.Doador;
+import utils.LocalDateAdapter;
+
+import java.io.*;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import alimentos.Alimento;
-import main.MainApp;
-
-public class PersistenciaDoador {
+public class DoadorDAO {
     private static final String ARQUIVO = "doadores.json";
 
     public static void salvar(Doador doador) {
         Gson gson = new GsonBuilder()
-            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
-            .setPrettyPrinting()
-            .create();
-            
-        List<Doador> doadores = PersistenciaDoador.obter();
+                .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                .setPrettyPrinting()
+                .create();
+
+        List<Doador> doadores = DoadorDAO.obter();
         doadores.add(doador);
 
         try (Writer writer = new FileWriter(ARQUIVO)) {
@@ -37,12 +33,11 @@ public class PersistenciaDoador {
         }
     }
 
-
     public static List<Doador> obter() {
         Gson gson = new GsonBuilder()
-            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
-            .setPrettyPrinting()
-            .create();
+                .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                .setPrettyPrinting()
+                .create();
 
         List<Doador> doadores = new ArrayList<>();
         File arquivo = new File(ARQUIVO);
@@ -58,7 +53,7 @@ public class PersistenciaDoador {
 
         return doadores;
     }
-    
+
     public static void atualizar(Doador doadorAtualizado) {
         List<Doador> doadores = obter();
         for (int i = 0; i < doadores.size(); i++) {
@@ -69,9 +64,9 @@ public class PersistenciaDoador {
         }
 
         Gson gson = new GsonBuilder()
-        	    .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
-        	    .setPrettyPrinting()
-        	    .create();
+                .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                .setPrettyPrinting()
+                .create();
 
         try (Writer writer = new FileWriter(ARQUIVO)) {
             gson.toJson(doadores, writer);
@@ -79,7 +74,7 @@ public class PersistenciaDoador {
             e.printStackTrace();
         }
     }
-    
+
     //Listar para Receptores MenuAlimentoReceptor
     public static List<Alimento> recuperarTodosAlimentos() {
         List<Alimento> todosAlimentos = new ArrayList<>();
@@ -91,7 +86,7 @@ public class PersistenciaDoador {
 
         return todosAlimentos;
     }
-    
+
     public static List<Alimento> recuperarAlimentosDoUsuarioLogado() {
         Doador doadorUser = (Doador) MainApp.getUser();
 
@@ -139,10 +134,4 @@ public class PersistenciaDoador {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
 }

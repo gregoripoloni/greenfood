@@ -4,9 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import main.MainApp;
-import usuario.Doador;
-import usuario.PersistenciaDoador;
-import alimentos.Alimento;
+import model.Doador;
+import persistence.DoadorDAO;
+import model.Alimento;
 
 import java.util.List;
 
@@ -61,14 +61,14 @@ public class CadastroDoacaoController {
         alimentoSelecionado.setQuantidade(alimentoSelecionado.getQuantidade() - quantidade);
 
         // Atualiza JSON do doador
-        List<Doador> todos = PersistenciaDoador.recuperarTodos();
+        List<Doador> todos = DoadorDAO.recuperarTodos();
         for (int i = 0; i < todos.size(); i++) {
             if (todos.get(i).getEmail().equals(doadorLogado.getEmail())) {
                 todos.set(i, doadorLogado);
                 break;
             }
         }
-        PersistenciaDoador.salvarTodos(todos);
+        DoadorDAO.salvarTodos(todos);
 
         showAlert("Sucesso", "Doação registrada com sucesso!");
         fecharJanela();

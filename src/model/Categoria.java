@@ -1,9 +1,9 @@
-package alimentos;
+package model;
 
 public class Categoria {
 		private String nome;
 
-		
+
 		//Getters and Setters
 		public String getNome() {
 			return nome;

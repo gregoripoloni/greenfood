@@ -1,24 +1,20 @@
 package main.controller;
 
-import java.time.LocalDate;
-
-import alimentos.Alimento;
+import model.Alimento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.MainApp;
-import usuario.Doador;
-import usuario.PersistenciaDoador;
+import model.Doador;
+import persistence.DoadorDAO;
+
+import java.time.LocalDate;
 
 public class CadastroController {
 	
@@ -79,7 +75,7 @@ public class CadastroController {
 
 	        mostrarPopupSucesso(); // Supondo que este método existe
 
-	        PersistenciaDoador.atualizar(doadorUser);
+	        DoadorDAO.atualizar(doadorUser);
 	    }
 
 

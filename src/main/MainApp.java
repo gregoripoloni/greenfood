@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import usuario.Usuario;
+import model.Usuario;
 
 public class MainApp extends Application {
 

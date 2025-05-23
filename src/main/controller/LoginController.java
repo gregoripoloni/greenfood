@@ -1,7 +1,5 @@
 package main.controller;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +11,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.MainApp;
-import usuario.LoginUsuario;
-import usuario.Usuario;
+import model.Usuario;
+import service.UsuarioService;
+
+import java.io.IOException;
 
 public class LoginController {
     @FXML
@@ -30,7 +30,8 @@ public class LoginController {
 
     public void logIn(ActionEvent actionEvent) {
         try {
-            Usuario usuario = LoginUsuario.verificar(emailField.getText(), passwordField.getText());
+            UsuarioService usuarioService = new UsuarioService();
+            Usuario usuario = usuarioService.autenticar(emailField.getText(), passwordField.getText());
             MainApp.setUser(usuario);
             goToHome();
         } catch (Exception e) {
