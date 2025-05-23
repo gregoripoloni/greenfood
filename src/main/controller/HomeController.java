@@ -54,4 +54,11 @@ public class HomeController {
         stage.setTitle("Greenfood - FoodList");
         stage.setScene(new Scene(root));
     }
+
+    public void addDonation(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) addDonationButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/CadastroDoacao.fxml"));
+        stage.setTitle("Greenfood - AddDonation");
+        stage.setScene(new Scene(root));
+    }
 }

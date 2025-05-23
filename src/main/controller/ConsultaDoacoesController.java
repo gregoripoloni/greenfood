@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import alimentos.Alimento;
+import model.Alimento;
 import model.Doacao;
 import persistence.DoacaoDAO;
 

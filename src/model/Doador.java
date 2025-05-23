@@ -1,7 +1,5 @@
 package model;
 
-import alimentos.Alimento;
-import alimentos.Estoque;
 import java.util.ArrayList;
 import java.util.List;
 

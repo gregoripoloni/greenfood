@@ -16,7 +16,7 @@
                      <font>
                         <Font size="20.0" />
                      </font></Button>
-                  <Button fx:id="donationButton" mnemonicParsing="false" onAction="#abrirCadastroDoacao" style="-fx-background-color: #3E7B27;" text="CRIAR NOVA DOAÇÃO" textFill="WHITE">
+                  <Button fx:id="addDonationButton" mnemonicParsing="false" onAction="#addDonation" style="-fx-background-color: #3E7B27;" text="CRIAR NOVA DOAÇÃO" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font></Button>
