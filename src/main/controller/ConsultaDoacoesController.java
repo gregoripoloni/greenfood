@@ -37,7 +37,7 @@ public class ConsultaDoacoesController {
         DoacaoDAO dao = new DoacaoDAO();
         List<Doacao> doacoes = dao.listarDoacoes();
         for (Doacao d : doacoes) {
-            dadosTabela.addAll(d.getAlimentos());
+            dadosTabela.addAll(d.getAlimento());
         }
     }
 

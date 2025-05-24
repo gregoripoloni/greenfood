@@ -5,7 +5,7 @@
         {
           "nome": "Laranja",
           "validade": "2025-05-20",
-          "quantidade": 11,
+          "quantidade": 5,
           "categoria": "Verdura"
         },
         {
@@ -17,8 +17,20 @@
         {
           "nome": "Morango",
           "validade": "2025-05-29",
-          "quantidade": 7,
+          "quantidade": 5,
           "categoria": "Fruta"
+        },
+        {
+          "nome": "Banana",
+          "validade": "2025-05-31",
+          "quantidade": 1,
+          "categoria": "Fruta"
+        },
+        {
+          "nome": "aaa",
+          "validade": "2025-05-31",
+          "quantidade": 108,
+          "categoria": "Verdura"
         }
       ]
     },

@@ -2,69 +2,63 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 public class Doacao implements Serializable {
-    private int idDoacao;
-    private Usuario doador;
-    private Usuario receptor;
+    private int id;
+    private int idDoador;
+    private int idReceptor;
     private LocalDate data;
-    private List<Alimento> alimentos;
+    private Alimento alimento;
 
-    public Doacao(int idDoacao, Usuario doador, Usuario receptor, LocalDate data, List<Alimento> alimentos) {
-        this.idDoacao = idDoacao;
-        this.doador = doador;
-        this.receptor = receptor;
+    public Doacao(int id, int idDoador, int idReceptor, LocalDate data, Alimento alimento) {
+        this.id = id;
+        this.idDoador = idDoador;
+        this.idReceptor = idReceptor;
         this.data = data;
-        this.alimentos = alimentos;
+        this.alimento = alimento;
     }
 
     public boolean verificarValidade() {
-        for (Alimento alimento : alimentos) {
-            if (alimento.getValidade().isBefore(LocalDate.now())) {
-                return false;
-            }
+        if (alimento.getValidade().isBefore(LocalDate.now())) {
+            return false;
         }
         return true;
     }
 
     public void atualizarQuantidade(String nomeAlimento, int novaQuantidade) {
-        for (Alimento alimento : alimentos) {
-            if (alimento.getNome().equalsIgnoreCase(nomeAlimento)) {
-                alimento.setQuantidade(novaQuantidade);
-                return;
-            }
+        if (alimento.getNome().equalsIgnoreCase(nomeAlimento)) {
+            alimento.setQuantidade(novaQuantidade);
         }
     }
 
     // Getters e Setters
 
-    public int getIdDoacao() {
-        return idDoacao;
+    public int getId() {
+        return id;
     }
 
-    public Usuario getDoador() {
-        return doador;
+    public int getIdDoador() {
+        return idDoador;
     }
 
-    public Usuario getReceptor() {
-        return receptor;
+    public int getIdReceptor() {
+        return idReceptor;
     }
 
     public LocalDate getData() {
         return data;
     }
 
-    public List<Alimento> getAlimentos() {
-        return alimentos;
+    public Alimento getAlimento() {
+        return alimento;
     }
 
     @Override
     public String toString() {
-        return "Doacao #" + idDoacao +
-                ", doador: " + doador.getNome() +
-                ", receptor: " + receptor.getNome() +
+        return "Doacao #" + id +
+                ", idDoador: " + idDoador +
+                ", idReceptor: " + idReceptor +
                 ", data: " + data +
-                ", alimentos: " + alimentos;
+                ", alimento: " + alimento;
     }
 }

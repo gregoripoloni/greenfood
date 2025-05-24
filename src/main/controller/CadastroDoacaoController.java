@@ -1,13 +1,19 @@
 package main.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import main.MainApp;
+import model.Doacao;
 import model.Doador;
 import persistence.DoadorDAO;
 import model.Alimento;
+import service.DoacaoService;
 
+import java.io.IOException;
 import java.util.List;
 
 public class CadastroDoacaoController {
@@ -35,7 +41,7 @@ public class CadastroDoacaoController {
     }
 
     @FXML
-    private void salvarDoacao() {
+    private void salvarDoacao() throws IOException {
         Alimento alimentoSelecionado = cbAlimento.getValue();
         String qtdTexto = tfQuantidade.getText();
 
@@ -70,12 +76,16 @@ public class CadastroDoacaoController {
         }
         DoadorDAO.salvarTodos(todos);
 
+        // Salva doação
+        DoacaoService doacaoService = new DoacaoService();
+        doacaoService.cadastrar(doadorLogado, alimentoSelecionado, quantidade);
+
         showAlert("Sucesso", "Doação registrada com sucesso!");
         fecharJanela();
     }
 
     @FXML
-    private void cancelar() {
+    private void cancelar() throws IOException {
         fecharJanela();
     }
 
@@ -87,8 +97,10 @@ public class CadastroDoacaoController {
         alert.showAndWait();
     }
 
-    private void fecharJanela() {
+    private void fecharJanela() throws IOException {
         Stage stage = (Stage) tfQuantidade.getScene().getWindow();
-        stage.close();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/home.fxml"));
+        stage.setTitle("Greenfood - Home");
+        stage.setScene(new Scene(root));
     }
 }

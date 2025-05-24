@@ -1,34 +1,50 @@
 [
   {
-    "idDoacao": 1,
-    "doador": {
-      "nome": "Larissa",
-      "email": "larissa@greenfood.com",
-      "senhaCriptografada": "abc123",
-      "telefone": "555199999999",
-      "tipo": "DOADOR"
-    },
-    "receptor": {
-      "nome": "Leonardo",
-      "email": "leonardo@instituto.org",
-      "senhaCriptografada": "def456",
-      "telefone": "555188888888",
-      "tipo": "RECEPTOR"
-    },
-    "data": "2025-05-01",
-    "alimentos": [
-      {
-        "nome": "Arroz",
-        "categoria": "Grãos",
-        "validade": "2025-06-01",
-        "quantidade": 10
-      },
-      {
-        "nome": "Feijão",
-        "categoria": "Grãos",
-        "validade": "2025-06-15",
-        "quantidade": 5
-      }
-    ]
+    "id": 0,
+    "idDoador": 1,
+    "idReceptor": 0,
+    "data": "2025-05-23",
+    "alimento": {
+      "nome": "Laranja",
+      "validade": "2025-05-20",
+      "quantidade": 5,
+      "categoria": "Verdura"
+    }
+  },
+  {
+    "id": 1,
+    "idDoador": 1,
+    "idReceptor": 0,
+    "data": "2025-05-23",
+    "alimento": {
+      "nome": "Morango",
+      "validade": "2025-05-29",
+      "quantidade": 5,
+      "categoria": "Fruta"
+    }
+  },
+  {
+    "id": 2,
+    "idDoador": 1,
+    "idReceptor": 0,
+    "data": "2025-05-23",
+    "alimento": {
+      "nome": "aaa",
+      "validade": "2025-05-31",
+      "quantidade": 1,
+      "categoria": "Verdura"
+    }
+  },
+  {
+    "id": 3,
+    "idDoador": 1,
+    "idReceptor": 0,
+    "data": "2025-05-23",
+    "alimento": {
+      "nome": "aaa",
+      "validade": "2025-05-31",
+      "quantidade": 2,
+      "categoria": "Verdura"
+    }
   }
 ]
