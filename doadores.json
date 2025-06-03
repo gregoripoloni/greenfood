@@ -25,12 +25,6 @@
           "validade": "2025-05-31",
           "quantidade": 1,
           "categoria": "Fruta"
-        },
-        {
-          "nome": "aaa",
-          "validade": "2025-05-31",
-          "quantidade": 108,
-          "categoria": "Verdura"
         }
       ]
     },

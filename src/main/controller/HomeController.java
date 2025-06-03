@@ -6,12 +6,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.MainApp;
+import model.Alimento;
 import model.Receptor;
 import model.Usuario;
+import persistence.DoadorDAO;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
 
 public class HomeController {
     @FXML
@@ -24,6 +30,9 @@ public class HomeController {
     private Button addFoodButton;
     @FXML
     private Button addDonationButton;
+    @FXML
+    private VBox containerAlimentos;
+
 
     public void initialize() {
         Usuario usuario = MainApp.getUser();
@@ -32,6 +41,15 @@ public class HomeController {
             addFoodButton.setVisible(false);
             addDonationButton.setVisible(false);
         }
+        
+        List<Alimento> todos = DoadorDAO.recuperarTodosAlimentos();
+        for (Alimento a : todos) {
+            if (a.getValidade().isBefore(LocalDate.now())) {
+                Label info = new Label(a.getNome() + " (Vencido em: " + a.getValidade() + ")");
+                containerAlimentos.getChildren().add(info);
+            }
+        }
+
     }
 
     public void logOut(ActionEvent actionEvent) throws IOException {
