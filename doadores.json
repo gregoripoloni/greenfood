@@ -34,5 +34,24 @@
     "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
     "telefone": "1234567891",
     "tipo": "doador"
+  },
+  {
+    "estoque": {
+      "alimentosEstoque": [
+        {
+          "nome": "Alimento greg",
+          "validade": "2025-05-31",
+          "quantidade": 2,
+          "categoria": "Verdura"
+        }
+      ]
+    },
+    "alimentos": [],
+    "id": 2,
+    "nome": "greg",
+    "email": "greg@admin",
+    "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "telefone": "54987654321",
+    "tipo": "doador"
   }
 ]

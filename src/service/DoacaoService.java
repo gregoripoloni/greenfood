@@ -16,10 +16,6 @@ public class DoacaoService {
         dao.salvarDoacao(doacao);
     }
 
-    /* public List<Doacao> listarDoacoes() {
-        return dao.obterDoacoes();
-    } */
-
     /* public void exibirRelatorioMensal() {
         List<Doacao> todas = listarDoacoes();
         System.out.println("📅 Relatório de Doações do Mês:");
@@ -44,5 +40,31 @@ public class DoacaoService {
         dao.salvarDoacao(doacao);
 
         return doacao;
+    }
+
+    public List<Doacao> obterSemReceptor() {
+        List<Doacao> doacoes = dao.listarDoacoes();
+
+        doacoes = doacoes.stream()
+                .filter(d -> d.getIdReceptor() == 0)
+                .toList();
+
+        return doacoes;
+    }
+
+    public List<Doacao> obterPorDoador(Doador doador) {
+        List<Doacao> doacoes = dao.listarDoacoes();
+
+        doacoes = doacoes.stream()
+                .filter(d -> d.getIdDoador() == doador.getId())
+                .toList();
+
+        return doacoes;
+    }
+
+    public void adicionarReceptor(Doacao doacao, Receptor receptor) {
+        doacao.setIdReceptor(receptor.getId());
+
+        dao.atualizar(doacao);
     }
 }

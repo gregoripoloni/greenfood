@@ -45,6 +45,10 @@ public class Doacao implements Serializable {
         return idReceptor;
     }
 
+    public void setIdReceptor(int idReceptor) {
+        this.idReceptor = idReceptor;
+    }
+
     public LocalDate getData() {
         return data;
     }

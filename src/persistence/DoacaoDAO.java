@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Doador;
 import utils.LocalDateAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,6 +9,7 @@ import model.Doacao;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,27 @@ public class DoacaoDAO {
         try (Writer writer = new FileWriter(ARQUIVO)) {
             gson.toJson(doacoes, writer);
             System.out.println("Doação salva com sucesso!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void atualizar(Doacao doacao) {
+        List<Doacao> doacoes = listarDoacoes();
+        for (int i = 0; i < doacoes.size(); i++) {
+            if (doacoes.get(i).getId() == doacao.getId()) {
+                doacoes.set(i, doacao);
+                break;
+            }
+        }
+
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                .setPrettyPrinting()
+                .create();
+
+        try (Writer writer = new FileWriter(ARQUIVO)) {
+            gson.toJson(doacoes, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }

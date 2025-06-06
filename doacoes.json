@@ -46,5 +46,17 @@
       "quantidade": 2,
       "categoria": "Verdura"
     }
+  },
+  {
+    "id": 4,
+    "idDoador": 2,
+    "idReceptor": 0,
+    "data": "2025-05-30",
+    "alimento": {
+      "nome": "Alimento greg",
+      "validade": "2025-05-31",
+      "quantidade": 2,
+      "categoria": "Verdura"
+    }
   }
 ]

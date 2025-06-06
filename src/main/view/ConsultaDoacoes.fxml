@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="main.controller.ConsultaDoacoesController" prefWidth="600" prefHeight="400">
+<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.ConsultaDoacoesController">
     <children>
-        <Label text="Doações Cadastradas" layoutX="200" layoutY="20">
-            <font><Font size="20.0"/></font>
+        <Label layoutX="200" layoutY="20" text="Doações Cadastradas">
+            <font><Font size="20.0" /></font>
         </Label>
-        <TableView fx:id="tabelaDoacoes" layoutX="30" layoutY="70" prefWidth="540" prefHeight="280">
-            <columns>
-                <TableColumn fx:id="colNome" text="Produto" prefWidth="180"/>
-                <TableColumn fx:id="colCategoria" text="Categoria" prefWidth="180"/>
-                <TableColumn fx:id="colValidade" text="Validade" prefWidth="180"/>
-            </columns>
-        </TableView>
-        <Button text="Fechar" layoutX="250" layoutY="360" onAction="#fecharJanela" prefWidth="100"/>
+        <ScrollPane layoutX="99.0" layoutY="62.0" prefHeight="277.0" prefWidth="402.0">
+            <content>
+                <VBox fx:id="listaDoacoes" prefHeight="348.0" prefWidth="404.0" />
+            </content>
+        </ScrollPane>
+        <Button fx:id="botaoFechar" layoutX="250" layoutY="360" onAction="#fecharJanela" prefWidth="100" text="Fechar" />
     </children>
 </AnchorPane>
