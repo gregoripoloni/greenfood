@@ -8,6 +8,7 @@ public class Doacao implements Serializable {
     private int idDoador;
     private int idReceptor;
     private LocalDate data;
+    private LocalDate dataRecepcao;
     private Alimento alimento;
 
     public Doacao(int id, int idDoador, int idReceptor, LocalDate data, Alimento alimento) {
@@ -31,14 +32,20 @@ public class Doacao implements Serializable {
         }
     }
 
-    // Getters e Setters
-
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getIdDoador() {
         return idDoador;
+    }
+
+    public void setIdDoador(int idDoador) {
+        this.idDoador = idDoador;
     }
 
     public int getIdReceptor() {
@@ -53,8 +60,24 @@ public class Doacao implements Serializable {
         return data;
     }
 
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public LocalDate getDataRecepcao() {
+        return dataRecepcao;
+    }
+
+    public void setDataRecepcao(LocalDate dataRecepcao) {
+        this.dataRecepcao = dataRecepcao;
+    }
+
     public Alimento getAlimento() {
         return alimento;
+    }
+
+    public void setAlimento(Alimento alimento) {
+        this.alimento = alimento;
     }
 
     @Override
@@ -63,6 +86,7 @@ public class Doacao implements Serializable {
                 ", idDoador: " + idDoador +
                 ", idReceptor: " + idReceptor +
                 ", data: " + data +
+                ", dataRecepcao: " + dataRecepcao +
                 ", alimento: " + alimento;
     }
 }

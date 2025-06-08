@@ -2,27 +2,12 @@ package service;
 
 import model.*;
 import persistence.DoacaoDAO;
-import persistence.DoadorDAO;
-import persistence.ReceptorDAO;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DoacaoService {
     private DoacaoDAO dao = new DoacaoDAO();
-
-    public void registrarDoacao(Doacao doacao) {
-        dao.salvarDoacao(doacao);
-    }
-
-    /* public void exibirRelatorioMensal() {
-        List<Doacao> todas = listarDoacoes();
-        System.out.println("📅 Relatório de Doações do Mês:");
-        todas.stream()
-            .filter(d -> d.getData().getMonthValue() == java.time.LocalDate.now().getMonthValue())
-            .forEach(System.out::println);
-    } */
 
     public Doacao cadastrar(Doador doador, Alimento alimento, int quantidade) {
         List<Doacao> doacoes = dao.listarDoacoes();
@@ -62,8 +47,19 @@ public class DoacaoService {
         return doacoes;
     }
 
+    public List<Doacao> obterPorReceptor(Receptor receptor) {
+        List<Doacao> doacoes = dao.listarDoacoes();
+
+        doacoes = doacoes.stream()
+                .filter(d -> d.getIdReceptor() == receptor.getId())
+                .toList();
+
+        return doacoes;
+    }
+
     public void adicionarReceptor(Doacao doacao, Receptor receptor) {
         doacao.setIdReceptor(receptor.getId());
+        doacao.setDataRecepcao(LocalDate.now());
 
         dao.atualizar(doacao);
     }

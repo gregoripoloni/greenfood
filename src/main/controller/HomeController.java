@@ -27,6 +27,8 @@ public class HomeController {
     @FXML
     private Button donationMenu;
     @FXML
+    private Button reportMenu;
+    @FXML
     private Button addFoodButton;
     @FXML
     private Button addDonationButton;
@@ -86,6 +88,13 @@ public class HomeController {
         Stage stage = (Stage) donationMenu.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/ConsultaDoacoes.fxml"));
         stage.setTitle("Greenfood - DonationList");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToReport(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) reportMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/RelatorioDoacoes.fxml"));
+        stage.setTitle("Greenfood - Report");
         stage.setScene(new Scene(root));
     }
 }

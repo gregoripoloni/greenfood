@@ -1,40 +1,53 @@
 package main.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import model.Doacao;
-import persistence.DoacaoDAO;
+import main.MainApp;
+import model.Doador;
+import model.Relatorio;
+import service.RelatorioService;
 
-import java.time.LocalDate;
+import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class RelatorioController {
 
-    @FXML private TextArea relatorioArea;
+    @FXML private TableView<Relatorio> tabelaDoacoes;
+    @FXML private TableColumn<Relatorio, String> colMes;
+    @FXML private TableColumn<Relatorio, String> colQuantidade;
+    @FXML private Button botaoFechar;
+
+    private final ObservableList<Relatorio> dadosTabela = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        DoacaoDAO dao = new DoacaoDAO();
-        List<Doacao> doacoes = dao.listarDoacoes();
+        colMes.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getMes().toString()));
+        colQuantidade.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(Integer.toString(cellData.getValue().getQuantidade())));
 
-        Map<Integer, Long> doacoesPorMes = doacoes.stream()
-            .collect(Collectors.groupingBy(d -> d.getData().getMonthValue(), Collectors.counting()));
+        carregarDoacoes();
+        tabelaDoacoes.setItems(dadosTabela);
+    }
 
-        StringBuilder builder = new StringBuilder("📅 Relatório de Doações:\n\n");
-        for (Map.Entry<Integer, Long> entry : doacoesPorMes.entrySet()) {
-            builder.append("Mês ").append(entry.getKey())
-                   .append(": ").append(entry.getValue()).append(" doações\n");
-        }
+    private void carregarDoacoes() {
+        RelatorioService relatorioService = new RelatorioService();
+        List<Relatorio> relatorios = relatorioService.gerarRelatorio(MainApp.getUser());
 
-        relatorioArea.setText(builder.toString());
+        dadosTabela.addAll(relatorios);
     }
 
     @FXML
-    private void fecharJanela() {
-        Stage stage = (Stage) relatorioArea.getScene().getWindow();
-        stage.close();
+    private void fecharJanela() throws IOException {
+        Stage stage = (Stage) botaoFechar.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/home.fxml"));
+        stage.setTitle("Greenfood - Home");
+        stage.setScene(new Scene(root));
     }
 }

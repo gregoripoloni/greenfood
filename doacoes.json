@@ -2,8 +2,9 @@
   {
     "id": 0,
     "idDoador": 1,
-    "idReceptor": 0,
+    "idReceptor": 1,
     "data": "2025-05-23",
+    "dataRecepcao": "2025-05-30",
     "alimento": {
       "nome": "Laranja",
       "validade": "2025-05-20",
@@ -14,8 +15,9 @@
   {
     "id": 1,
     "idDoador": 1,
-    "idReceptor": 0,
+    "idReceptor": 1,
     "data": "2025-05-23",
+    "dataRecepcao": "2025-06-08",
     "alimento": {
       "nome": "Morango",
       "validade": "2025-05-29",
@@ -57,6 +59,18 @@
       "validade": "2025-05-31",
       "quantidade": 2,
       "categoria": "Verdura"
+    }
+  },
+  {
+    "id": 5,
+    "idDoador": 1,
+    "idReceptor": 0,
+    "data": "2025-06-06",
+    "alimento": {
+      "nome": "Pinhao",
+      "validade": "2025-05-29",
+      "quantidade": 1,
+      "categoria": "Outros"
     }
   }
 ]
