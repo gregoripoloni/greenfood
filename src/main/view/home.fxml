@@ -72,11 +72,11 @@
             <Insets left="20.0" right="20.0" />
          </padding>
       </HBox>
-      <ScrollPane layoutX="149.0" layoutY="174.0" prefHeight="146.0" prefWidth="474.0">
+      <ScrollPane layoutX="149.0" layoutY="174.0" prefHeight="305.0" prefWidth="474.0">
          <content>
-            <VBox fx:id="containerAlimentos" prefHeight="146.0" prefWidth="474.0">
+            <VBox fx:id="containerAlimentos" prefHeight="298.0" prefWidth="474.0">
                <children>
-                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Alimentos Vencidos" />
+                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Alimento(s) Perto do Vencimento" />
                </children>
             </VBox>
          </content>

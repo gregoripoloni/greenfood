@@ -1,32 +1,7 @@
 [
   {
     "estoque": {
-      "alimentosEstoque": [
-        {
-          "nome": "Laranja",
-          "validade": "2025-05-20",
-          "quantidade": 5,
-          "categoria": "Verdura"
-        },
-        {
-          "nome": "Pinhao",
-          "validade": "2025-05-29",
-          "quantidade": 1,
-          "categoria": "Outros"
-        },
-        {
-          "nome": "Morango",
-          "validade": "2025-05-29",
-          "quantidade": 5,
-          "categoria": "Fruta"
-        },
-        {
-          "nome": "Banana",
-          "validade": "2025-05-31",
-          "quantidade": 1,
-          "categoria": "Fruta"
-        }
-      ]
+      "alimentosEstoque": []
     },
     "id": 1,
     "nome": "admin",

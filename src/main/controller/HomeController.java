@@ -3,14 +3,18 @@ package main.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.MainApp;
 import model.Alimento;
+import model.Doador;
 import model.Receptor;
 import model.Usuario;
 import persistence.DoadorDAO;
@@ -34,8 +38,29 @@ public class HomeController {
     private Button addDonationButton;
     @FXML
     private VBox containerAlimentos;
+    @FXML
+	private VBox vboxAlimentos;
+    
+    LocalDate hoje = LocalDate.now();
+    LocalDate limite = hoje.plusDays(5);
+    
+    private VBox criarCardAlimentoVencido(Alimento alimento) {
+        VBox card = new VBox();
+        card.setSpacing(5);
+        card.setPadding(new Insets(10));
+        card.setStyle("-fx-border-color: #d9534f; -fx-border-width: 2; -fx-background-color: #f9d6d5; -fx-background-radius: 8;");
 
+        Label nome = new Label("🍽 Alimento: " + alimento.getNome());
+        nome.setStyle("-fx-font-weight: bold; -fx-font-size: 14;");
 
+        Label validade = new Label("Vencido em: " + alimento.getValidade());
+        validade.setStyle("-fx-text-fill: #a94442;");
+
+        card.getChildren().addAll(nome, validade);
+        return card;
+    }
+
+  
     public void initialize() {
         Usuario usuario = MainApp.getUser();
 
@@ -45,10 +70,12 @@ public class HomeController {
         }
         
         List<Alimento> todos = DoadorDAO.recuperarTodosAlimentos();
+        
         for (Alimento a : todos) {
-            if (a.getValidade().isBefore(LocalDate.now())) {
-                Label info = new Label(a.getNome() + " (Vencido em: " + a.getValidade() + ")");
-                containerAlimentos.getChildren().add(info);
+            LocalDate validade = a.getValidade();
+            if (validade.isBefore(hoje) || (!validade.isAfter(limite))) {
+                VBox card = criarCardAlimentoVencido(a);
+                containerAlimentos.getChildren().add(card);
             }
         }
 
