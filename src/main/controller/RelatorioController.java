@@ -25,6 +25,15 @@ public class RelatorioController {
     @FXML private TableColumn<Relatorio, String> colQuantidade;
     @FXML private Button botaoFechar;
 
+    @FXML
+    private Button homeMenu;
+    @FXML
+    private Button foodMenu;
+    @FXML
+    private Button donationMenu;
+    @FXML
+    private Button logoutMenu;
+
     private final ObservableList<Relatorio> dadosTabela = FXCollections.observableArrayList();
 
     @FXML
@@ -48,6 +57,36 @@ public class RelatorioController {
         Stage stage = (Stage) botaoFechar.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/home.fxml"));
         stage.setTitle("Greenfood - Home");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToHome() throws IOException {
+        Stage stage = (Stage) homeMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/home.fxml"));
+        stage.setTitle("Greenfood - Home");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToFoods() throws IOException {
+        Stage stage = (Stage) foodMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/MenuAlimentos.fxml"));
+        stage.setTitle("Greenfood - FoodList");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToDonations() throws IOException {
+        Stage stage = (Stage) donationMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/ConsultaDoacoes.fxml"));
+        stage.setTitle("Greenfood - DonationList");
+        stage.setScene(new Scene(root));
+    }
+
+    public void logOut() throws IOException {
+        MainApp.setUser(null);
+
+        Stage stage = (Stage) logoutMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/login.fxml"));
+        stage.setTitle("Greenfood - LogIn");
         stage.setScene(new Scene(root));
     }
 }

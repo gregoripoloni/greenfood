@@ -11,10 +11,9 @@ public class Doacao implements Serializable {
     private LocalDate dataRecepcao;
     private Alimento alimento;
 
-    public Doacao(int id, int idDoador, int idReceptor, LocalDate data, Alimento alimento) {
+    public Doacao(int id, int idDoador, LocalDate data, Alimento alimento) {
         this.id = id;
         this.idDoador = idDoador;
-        this.idReceptor = idReceptor;
         this.data = data;
         this.alimento = alimento;
     }

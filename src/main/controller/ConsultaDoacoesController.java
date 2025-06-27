@@ -25,6 +25,15 @@ public class ConsultaDoacoesController {
     @FXML private Button botaoFechar;
 
     @FXML
+    private Button homeMenu;
+    @FXML
+    private Button foodMenu;
+    @FXML
+    private Button reportMenu;
+    @FXML
+    private Button logoutMenu;
+
+    @FXML
     public void initialize() {
         carregarDoacoes();
     }
@@ -75,6 +84,36 @@ public class ConsultaDoacoesController {
         Stage stage = (Stage) botaoFechar.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/home.fxml"));
         stage.setTitle("Greenfood - Home");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToHome() throws IOException {
+        Stage stage = (Stage) homeMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/home.fxml"));
+        stage.setTitle("Greenfood - Home");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToFoods() throws IOException {
+        Stage stage = (Stage) foodMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/MenuAlimentos.fxml"));
+        stage.setTitle("Greenfood - FoodList");
+        stage.setScene(new Scene(root));
+    }
+
+    public void goToReport() throws IOException {
+        Stage stage = (Stage) reportMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/RelatorioDoacoes.fxml"));
+        stage.setTitle("Greenfood - Report");
+        stage.setScene(new Scene(root));
+    }
+
+    public void logOut() throws IOException {
+        MainApp.setUser(null);
+
+        Stage stage = (Stage) logoutMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/main/view/login.fxml"));
+        stage.setTitle("Greenfood - LogIn");
         stage.setScene(new Scene(root));
     }
 }

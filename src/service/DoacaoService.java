@@ -20,7 +20,7 @@ public class DoacaoService {
         Alimento alimentoDoado = new Alimento(alimento.getNome(), alimento.getQuantidade(), alimento.getValidade(), alimento.getCategoria());
         alimentoDoado.setQuantidade(quantidade);
 
-        Doacao doacao = new Doacao(id, doador.getId(), 0, LocalDate.now(), alimentoDoado);
+        Doacao doacao = new Doacao(id, doador.getId(), LocalDate.now(), alimentoDoado);
 
         dao.salvarDoacao(doacao);
 
