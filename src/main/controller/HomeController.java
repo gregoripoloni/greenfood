@@ -10,7 +10,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.MainApp;
 import model.Alimento;
@@ -39,10 +41,12 @@ public class HomeController {
     @FXML
     private VBox containerAlimentos;
     @FXML
-	private VBox vboxAlimentos;
+    private Text textWelcome;
+    @FXML
+    private Pane paraSobrepor;
     
     LocalDate hoje = LocalDate.now();
-    LocalDate limite = hoje.plusDays(5);
+    LocalDate limite = hoje.plusDays(7);
     
     private VBox criarCardAlimentoVencido(Alimento alimento) {
         VBox card = new VBox();
@@ -67,9 +71,14 @@ public class HomeController {
         if (usuario.getTipo().equals(Receptor.TIPO)) {
             addFoodButton.setVisible(false);
             addDonationButton.setVisible(false);
+            containerAlimentos.setVisible(false);
         }
         
+        if(usuario.getTipo().equals(Doador.TIPO)) {
         List<Alimento> todos = DoadorDAO.recuperarTodosAlimentos();
+        
+        textWelcome.setVisible(false);
+        paraSobrepor.setVisible(false);
         
         for (Alimento a : todos) {
             LocalDate validade = a.getValidade();
@@ -78,7 +87,7 @@ public class HomeController {
                 containerAlimentos.getChildren().add(card);
             }
         }
-
+        }
     }
 
     public void logOut(ActionEvent actionEvent) throws IOException {

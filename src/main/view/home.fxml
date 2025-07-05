@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -81,5 +82,11 @@
             </VBox>
          </content>
       </ScrollPane>
+      <Text fx:id="textWelcome" fill="#547160" layoutX="217.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo ao GreenFood!">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Pane fx:id="paraSobrepor" layoutX="-51.0" layoutY="173.0" prefHeight="306.0" prefWidth="824.0" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>

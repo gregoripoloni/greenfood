@@ -1,7 +1,24 @@
 [
   {
     "estoque": {
-      "alimentosEstoque": []
+      "alimentosEstoque": [
+        {
+          "nome": "Requeijão",
+          "validade": "2025-07-18",
+          "quantidade": 0,
+          "categoria": {
+            "nome": "Laticínio"
+          }
+        },
+        {
+          "nome": "Pringles",
+          "validade": "2025-07-25",
+          "quantidade": 3,
+          "categoria": {
+            "nome": "Outros"
+          }
+        }
+      ]
     },
     "id": 1,
     "nome": "admin",
@@ -12,14 +29,7 @@
   },
   {
     "estoque": {
-      "alimentosEstoque": [
-        {
-          "nome": "Alimento greg",
-          "validade": "2025-05-31",
-          "quantidade": 2,
-          "categoria": "Verdura"
-        }
-      ]
+      "alimentosEstoque": []
     },
     "alimentos": [],
     "id": 2,

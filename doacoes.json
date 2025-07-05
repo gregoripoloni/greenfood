@@ -9,68 +9,39 @@
       "nome": "Laranja",
       "validade": "2025-05-20",
       "quantidade": 5,
-      "categoria": "Verdura"
+      "categoria": {
+        "nome": "Fruta"
+      }
     }
   },
   {
     "id": 1,
     "idDoador": 1,
     "idReceptor": 1,
-    "data": "2025-05-23",
-    "dataRecepcao": "2025-06-08",
+    "data": "2025-07-04",
+    "dataRecepcao": "2025-07-04",
     "alimento": {
-      "nome": "Morango",
-      "validade": "2025-05-29",
+      "nome": "Requeijão",
+      "validade": "2025-07-18",
       "quantidade": 5,
-      "categoria": "Fruta"
+      "categoria": {
+        "nome": "Laticínio"
+      }
     }
   },
   {
     "id": 2,
     "idDoador": 1,
-    "idReceptor": 0,
-    "data": "2025-05-23",
+    "idReceptor": 1,
+    "data": "2025-07-04",
+    "dataRecepcao": "2025-07-04",
     "alimento": {
-      "nome": "aaa",
-      "validade": "2025-05-31",
-      "quantidade": 1,
-      "categoria": "Verdura"
-    }
-  },
-  {
-    "id": 3,
-    "idDoador": 1,
-    "idReceptor": 0,
-    "data": "2025-05-23",
-    "alimento": {
-      "nome": "aaa",
-      "validade": "2025-05-31",
-      "quantidade": 2,
-      "categoria": "Verdura"
-    }
-  },
-  {
-    "id": 4,
-    "idDoador": 2,
-    "idReceptor": 0,
-    "data": "2025-05-30",
-    "alimento": {
-      "nome": "Alimento greg",
-      "validade": "2025-05-31",
-      "quantidade": 2,
-      "categoria": "Verdura"
-    }
-  },
-  {
-    "id": 5,
-    "idDoador": 1,
-    "idReceptor": 0,
-    "data": "2025-06-06",
-    "alimento": {
-      "nome": "Pinhao",
-      "validade": "2025-05-29",
-      "quantidade": 1,
-      "categoria": "Outros"
+      "nome": "Requeijão",
+      "validade": "2025-07-18",
+      "quantidade": 5,
+      "categoria": {
+        "nome": "Laticínio"
+      }
     }
   }
 ]

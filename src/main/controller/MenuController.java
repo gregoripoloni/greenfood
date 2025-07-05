@@ -81,7 +81,7 @@ public class MenuController {
 		        }
 
 		        // Salva toda a lista atualizada
-		        DoadorDAO.salvarTodos(todosDoadores); // você vai precisar criar este método
+		        DoadorDAO.salvarTodos(todosDoadores); 
 
 		        // Remove o card da interface
 		        ((VBox) card.getParent()).getChildren().remove(card);
@@ -130,9 +130,5 @@ public class MenuController {
 	    }
 	    }
 	 
-	 @FXML
-	    private void testeBotao() {
-	    	System.out.println("Ta ino!");
-	    }
 	    
 }

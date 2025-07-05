@@ -1,6 +1,7 @@
 package main.controller;
 
 import model.Alimento;
+import model.Categoria;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,7 @@ public class CadastroController {
 	
 	 	@FXML private TextField tfNome;
 	    @FXML private TextField tfQuantidade;
-	    @FXML private ChoiceBox<String> cbCategoria;
+	    @FXML private ComboBox<Categoria> cbCategoria;
 	    @FXML private DatePicker dpValidade;
 	    @FXML private Label errorLabel;
 	    
@@ -32,11 +33,18 @@ public class CadastroController {
 		    alerta.showAndWait();
 		}
 	    
-	    @FXML
-	    private void initialize() {
-	        // Preencher as categorias no ComboBox
-	        cbCategoria.getItems().addAll("Fruta", "Verdura", "Laticínio", "Carne", "Outros");
-	    }
+		@FXML
+		private void initialize() {
+		    cbCategoria.getItems().addAll(
+		        new Categoria("Fruta"),
+		        new Categoria("Verdura"),
+		        new Categoria("Laticínio"),
+		        new Categoria("Carne"),
+		        new Categoria("Padaria"),
+		        new Categoria("Outros")
+		    );
+		}
+
 	    
 	    @FXML
 	    private void salvarAlimento() {
@@ -44,7 +52,7 @@ public class CadastroController {
 
 	        String nome = tfNome.getText();
 	        String quantidadeTexto = tfQuantidade.getText();
-	        String categoria = cbCategoria.getValue();
+	        Categoria categoria = cbCategoria.getValue();
 	        LocalDate validade = dpValidade.getValue();
 
 	        // Verifica se algum campo está vazio ou nulo

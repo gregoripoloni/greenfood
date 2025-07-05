@@ -6,12 +6,12 @@ public class Alimento {
 	private String nome;
 	private LocalDate validade;
 	private int quantidade;
-	private String categoria;
+	private Categoria categoria;
 	
 	// Construtor
 	public Alimento() {}
 	
-	public Alimento(String nome, int quantidade, LocalDate validade, String categoria) {
+	public Alimento(String nome, int quantidade, LocalDate validade, Categoria categoria) {
 		this.nome = nome;
 		this.validade = validade;
 		this.quantidade = quantidade;
@@ -49,12 +49,15 @@ public class Alimento {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	public String getCategoria() {
+
+	public Categoria getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(String categoria) {
+
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
 
 
 }
