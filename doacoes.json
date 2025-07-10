@@ -1,34 +1,90 @@
 [
   {
-    "idDoacao": 1,
-    "doador": {
-      "nome": "Larissa",
-      "email": "larissa@greenfood.com",
-      "senhaCriptografada": "abc123",
-      "telefone": "555199999999",
-      "tipo": "DOADOR"
-    },
-    "receptor": {
-      "nome": "Leonardo",
-      "email": "leonardo@instituto.org",
-      "senhaCriptografada": "def456",
-      "telefone": "555188888888",
-      "tipo": "RECEPTOR"
-    },
-    "data": "2025-05-01",
-    "alimentos": [
-      {
-        "nome": "Arroz",
-        "categoria": "Grãos",
-        "validade": "2025-06-01",
-        "quantidade": 10
-      },
-      {
-        "nome": "Feijão",
-        "categoria": "Grãos",
-        "validade": "2025-06-15",
-        "quantidade": 5
+    "id": 0,
+    "idDoador": 1,
+    "idReceptor": 1,
+    "data": "2025-05-23",
+    "dataRecepcao": "2025-05-30",
+    "alimento": {
+      "nome": "Laranja",
+      "validade": "2025-05-20",
+      "quantidade": 5,
+      "categoria": {
+        "nome": "Fruta"
       }
-    ]
+    }
+  },
+  {
+    "id": 1,
+    "idDoador": 1,
+    "idReceptor": 1,
+    "data": "2025-07-04",
+    "dataRecepcao": "2025-07-04",
+    "alimento": {
+      "nome": "Requeijão",
+      "validade": "2025-07-18",
+      "quantidade": 5,
+      "categoria": {
+        "nome": "Laticínio"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "idDoador": 1,
+    "idReceptor": 1,
+    "data": "2025-07-04",
+    "dataRecepcao": "2025-07-04",
+    "alimento": {
+      "nome": "Requeijão",
+      "validade": "2025-07-18",
+      "quantidade": 5,
+      "categoria": {
+        "nome": "Laticínio"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "idDoador": 3,
+    "idReceptor": 1,
+    "data": "2025-07-09",
+    "dataRecepcao": "2025-07-09",
+    "alimento": {
+      "nome": "Laranja",
+      "validade": "2025-07-23",
+      "quantidade": 5,
+      "categoria": {
+        "nome": "Fruta"
+      }
+    }
+  },
+  {
+    "id": 4,
+    "idDoador": 3,
+    "idReceptor": 0,
+    "data": "2025-07-09",
+    "alimento": {
+      "nome": "Banana",
+      "validade": "2025-07-31",
+      "quantidade": 5,
+      "categoria": {
+        "nome": "Fruta"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "idDoador": 1,
+    "idReceptor": 0,
+    "data": "2025-07-09",
+    "alimento": {
+      "nome": "Pringles",
+      "validade": "2025-07-25",
+      "quantidade": 1,
+      "categoria": {
+        "nome": "Outros"
+      }
+    }
   }
 ]

@@ -12,6 +12,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UsuarioService {
+    public Usuario obterDoadorPorId(int idDoador) {
+        List<Doador> doadores = DoadorDAO.obter();
+
+        Doador doador = doadores.stream()
+                .filter(d -> d.getId() == idDoador)
+                .findFirst().get();
+
+        return doador;
+    }
+
     public Usuario cadastrar(String nome, String email, String senha, String telefone, String tipo) throws Exception {
         String erro = validar(nome, email, senha, telefone, tipo);
 

@@ -8,17 +8,16 @@ import javafx.stage.Stage;
 import model.Usuario;
 
 public class MainApp extends Application {
+	
+	private static Usuario user;
 
-     private static Usuario user;
+    public static Usuario getUser() { return user; }
 
-     public static Usuario getUser() { return user; }
-
-     public static void setUser(Usuario usuario) { user = usuario; }
-
+    public static void setUser(Usuario usuario) { user = usuario; }
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/main/view/login.fxml"));
-        stage.setTitle("GreenFood - LogIn");
+        stage.setTitle("Greenfood - LogIn");
         stage.setScene(new Scene(root));
         stage.show();
     }

@@ -3,22 +3,12 @@
     "estoque": {
       "alimentosEstoque": [
         {
-          "nome": "Laranja",
-          "validade": "2025-05-20",
-          "quantidade": 11,
-          "categoria": "Verdura"
-        },
-        {
-          "nome": "Pinhao",
-          "validade": "2025-05-29",
+          "nome": "Pringles",
+          "validade": "2025-07-25",
           "quantidade": 2,
-          "categoria": "Outros"
-        },
-        {
-          "nome": "Morango",
-          "validade": "2025-05-29",
-          "quantidade": 7,
-          "categoria": "Fruta"
+          "categoria": {
+            "nome": "Outros"
+          }
         }
       ]
     },
@@ -27,6 +17,30 @@
     "email": "admin@admin",
     "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
     "telefone": "1234567891",
+    "tipo": "doador"
+  },
+  {
+    "estoque": {
+      "alimentosEstoque": []
+    },
+    "alimentos": [],
+    "id": 2,
+    "nome": "greg",
+    "email": "greg@admin",
+    "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "telefone": "54987654321",
+    "tipo": "doador"
+  },
+  {
+    "estoque": {
+      "alimentosEstoque": []
+    },
+    "alimentos": [],
+    "id": 3,
+    "nome": "Leonardo",
+    "email": "teste@gmail.com",
+    "senha": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+    "telefone": "54123456789",
     "tipo": "doador"
   }
 ]

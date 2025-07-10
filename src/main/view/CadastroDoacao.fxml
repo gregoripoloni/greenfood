@@ -1,24 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="main.controller.CadastroDoacaoController" prefWidth="500" prefHeight="300" style="-fx-background-color: #F0F0F0;">
+<AnchorPane prefHeight="349.0" prefWidth="772.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.CadastroDoacaoController">
     <children>
-        <Label text="Cadastrar Doação" layoutX="180" layoutY="20">
+        <HBox alignment="CENTER_RIGHT" layoutX="-6.0" layoutY="-7.0" prefHeight="67.0" prefWidth="778.0" spacing="10.0" style="-fx-background-color: #D9D9D9;">
+            <children>
+                <ImageView fitHeight="40.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/GreenFood_noBG_noMargin.png" />
+                    </image>
+                </ImageView>
+                <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="570.0" spacing="10.0">
+                    <children>
+                        <Button fx:id="homeMenu" mnemonicParsing="false" onAction="#goToHome" style="-fx-background-color: transparent;" text="Home">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="foodMenu" mnemonicParsing="false" onAction="#goToFoods" style="-fx-background-color: transparent;" text="Alimentos">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="donationMenu" mnemonicParsing="false" onAction="#goToDonations" style="-fx-background-color: transparent;" text="Doações">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="reportMenu" mnemonicParsing="false" onAction="#goToReport" style="-fx-background-color: transparent;" text="Relatório">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="logoutMenu" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: transparent;" text="Sair">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+        <Label layoutX="308.0" layoutY="96.0" text="Cadastrar Doação">
             <font>
-                <Font size="20.0"/>
+                <Font size="20.0" />
             </font>
         </Label>
 
-        <Label layoutX="70" layoutY="80" text="Alimento:"/>
-        <ComboBox fx:id="cbAlimento" layoutX="150" layoutY="75" prefWidth="250"/>
+        <Label layoutX="221.0" layoutY="155.0" text="Alimento:" />
+        <ComboBox fx:id="cbAlimento" layoutX="301.0" layoutY="150.0" prefWidth="250" />
 
-        <Label layoutX="70" layoutY="130" text="Quantidade:"/>
-        <TextField fx:id="tfQuantidade" layoutX="150" layoutY="125" prefWidth="250" promptText="Digite a quantidade"/>
+        <Label layoutX="221.0" layoutY="205.0" text="Quantidade:" />
+        <TextField fx:id="tfQuantidade" layoutX="301.0" layoutY="200.0" prefWidth="250" promptText="Digite a quantidade" />
 
-        <Button fx:id="btnSalvar" text="Salvar" layoutX="270" layoutY="200" prefWidth="130" onAction="#salvarDoacao" style="-fx-background-color: green; -fx-text-fill: white;"/>
-        <Button fx:id="btnCancelar" text="Cancelar" layoutX="100" layoutY="200" prefWidth="130" onAction="#cancelar" style="-fx-background-color: red; -fx-text-fill: white;"/>
+        <Button fx:id="btnSalvar" layoutX="421.0" layoutY="275.0" onAction="#salvarDoacao" prefWidth="130" style="-fx-background-color: green; -fx-text-fill: white;" text="Salvar" />
+        <Button fx:id="btnCancelar" layoutX="251.0" layoutY="275.0" onAction="#cancelar" prefWidth="130" style="-fx-background-color: red; -fx-text-fill: white;" text="Cancelar" />
     </children>
 </AnchorPane>

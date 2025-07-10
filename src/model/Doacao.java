@@ -2,69 +2,90 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 public class Doacao implements Serializable {
-    private int idDoacao;
-    private Usuario doador;
-    private Usuario receptor;
+    private int id;
+    private int idDoador;
+    private int idReceptor;
     private LocalDate data;
-    private List<Alimento> alimentos;
+    private LocalDate dataRecepcao;
+    private Alimento alimento;
 
-    public Doacao(int idDoacao, Usuario doador, Usuario receptor, LocalDate data, List<Alimento> alimentos) {
-        this.idDoacao = idDoacao;
-        this.doador = doador;
-        this.receptor = receptor;
+    public Doacao(int id, int idDoador, LocalDate data, Alimento alimento) {
+        this.id = id;
+        this.idDoador = idDoador;
         this.data = data;
-        this.alimentos = alimentos;
+        this.alimento = alimento;
     }
 
     public boolean verificarValidade() {
-        for (Alimento alimento : alimentos) {
-            if (alimento.getValidade().isBefore(LocalDate.now())) {
-                return false;
-            }
+        if (alimento.getValidade().isBefore(LocalDate.now())) {
+            return false;
         }
         return true;
     }
 
     public void atualizarQuantidade(String nomeAlimento, int novaQuantidade) {
-        for (Alimento alimento : alimentos) {
-            if (alimento.getNome().equalsIgnoreCase(nomeAlimento)) {
-                alimento.setQuantidade(novaQuantidade);
-                return;
-            }
+        if (alimento.getNome().equalsIgnoreCase(nomeAlimento)) {
+            alimento.setQuantidade(novaQuantidade);
         }
     }
 
-    // Getters e Setters
-
-    public int getIdDoacao() {
-        return idDoacao;
+    public int getId() {
+        return id;
     }
 
-    public Usuario getDoador() {
-        return doador;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Usuario getReceptor() {
-        return receptor;
+    public int getIdDoador() {
+        return idDoador;
+    }
+
+    public void setIdDoador(int idDoador) {
+        this.idDoador = idDoador;
+    }
+
+    public int getIdReceptor() {
+        return idReceptor;
+    }
+
+    public void setIdReceptor(int idReceptor) {
+        this.idReceptor = idReceptor;
     }
 
     public LocalDate getData() {
         return data;
     }
 
-    public List<Alimento> getAlimentos() {
-        return alimentos;
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public LocalDate getDataRecepcao() {
+        return dataRecepcao;
+    }
+
+    public void setDataRecepcao(LocalDate dataRecepcao) {
+        this.dataRecepcao = dataRecepcao;
+    }
+
+    public Alimento getAlimento() {
+        return alimento;
+    }
+
+    public void setAlimento(Alimento alimento) {
+        this.alimento = alimento;
     }
 
     @Override
     public String toString() {
-        return "Doacao #" + idDoacao +
-                ", doador: " + doador.getNome() +
-                ", receptor: " + receptor.getNome() +
+        return "Doacao #" + id +
+                ", idDoador: " + idDoador +
+                ", idReceptor: " + idReceptor +
                 ", data: " + data +
-                ", alimentos: " + alimentos;
+                ", dataRecepcao: " + dataRecepcao +
+                ", alimento: " + alimento;
     }
 }

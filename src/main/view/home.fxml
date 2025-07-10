@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<BorderPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.HomeController">
-   <center>
-      <VBox prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: #EAEAEA;" BorderPane.alignment="CENTER">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.HomeController">
+   <children>
+      <VBox layoutX="-4.0" layoutY="60.0" prefHeight="114.0" prefWidth="778.0" style="-fx-background-color: #EAEAEA;">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+            <HBox alignment="CENTER" prefHeight="82.0" prefWidth="762.0" spacing="50.0">
                <children>
                   <Button fx:id="addFoodButton" mnemonicParsing="false" onAction="#addFood" style="-fx-background-color: #3E7B27;" text="CRIAR NOVO ALIMENTO" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
                   <Button fx:id="addDonationButton" mnemonicParsing="false" onAction="#addDonation" style="-fx-background-color: #3E7B27;" text="CRIAR NOVA DOAÇÃO" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>
       </VBox>
-   </center>
-   <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" layoutX="-6.0" layoutY="-7.0" prefHeight="67.0" prefWidth="778.0" spacing="10.0" style="-fx-background-color: #D9D9D9;">
          <children>
             <ImageView fitHeight="40.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -45,7 +51,12 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Doações">
+                  <Button fx:id="donationMenu" mnemonicParsing="false" onAction="#goToDonations" style="-fx-background-color: transparent;" text="Doações">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="reportMenu" mnemonicParsing="false" onAction="#goToReport" style="-fx-background-color: transparent;" text="Relatório">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -62,5 +73,20 @@
             <Insets left="20.0" right="20.0" />
          </padding>
       </HBox>
-   </top>
-</BorderPane>
+      <ScrollPane layoutX="149.0" layoutY="174.0" prefHeight="305.0" prefWidth="474.0">
+         <content>
+            <VBox fx:id="containerAlimentos" prefHeight="298.0" prefWidth="474.0">
+               <children>
+                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Alimento(s) Perto do Vencimento" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Text fx:id="textWelcome" fill="#547160" layoutX="217.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo ao GreenFood!">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Pane fx:id="paraSobrepor" layoutX="-51.0" layoutY="173.0" prefHeight="306.0" prefWidth="824.0" style="-fx-background-color: white;" />
+   </children>
+</AnchorPane>
