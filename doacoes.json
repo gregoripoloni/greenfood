@@ -43,5 +43,48 @@
         "nome": "Laticínio"
       }
     }
+  },
+  {
+    "id": 3,
+    "idDoador": 3,
+    "idReceptor": 1,
+    "data": "2025-07-09",
+    "dataRecepcao": "2025-07-09",
+    "alimento": {
+      "nome": "Laranja",
+      "validade": "2025-07-23",
+      "quantidade": 5,
+      "categoria": {
+        "nome": "Fruta"
+      }
+    }
+  },
+  {
+    "id": 4,
+    "idDoador": 3,
+    "idReceptor": 0,
+    "data": "2025-07-09",
+    "alimento": {
+      "nome": "Banana",
+      "validade": "2025-07-31",
+      "quantidade": 5,
+      "categoria": {
+        "nome": "Fruta"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "idDoador": 1,
+    "idReceptor": 0,
+    "data": "2025-07-09",
+    "alimento": {
+      "nome": "Pringles",
+      "validade": "2025-07-25",
+      "quantidade": 1,
+      "categoria": {
+        "nome": "Outros"
+      }
+    }
   }
 ]
